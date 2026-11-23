@@ -1,0 +1,837 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado de Linguagens - Aprende+ ENEM</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6fb;
+    color: #26364f;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(180deg, #163b7a, #315eb0);
+    padding: 30px 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 45px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: rgba(255,255,255,0.17);
+}
+
+.sidebar .voltar-menu {
+    position: absolute;
+    bottom: 28px;
+    left: 20px;
+    width: calc(100% - 40px);
+    text-align: center;
+    background: rgba(255,255,255,0.17);
+}
+
+main {
+    margin-left: 250px;
+    padding: 35px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.topo h1 {
+    font-size: 25px;
+}
+
+.apresentacao,
+.questao,
+#resultado,
+.escolha-idioma {
+    background: white;
+    padding: 25px;
+    border-radius: 13px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.apresentacao h2 {
+    color: #244d91;
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.apresentacao p {
+    font-size: 14px;
+    color: #68758a;
+    line-height: 1.7;
+}
+
+.info {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    font-size: 13px;
+    flex-wrap: wrap;
+}
+
+.escolha-idioma h2 {
+    color: #244d91;
+    margin-bottom: 12px;
+}
+
+.escolha-idioma p {
+    color: #68758a;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.opcoes-idioma {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-idioma,
+.btn-proximo,
+.btn-finalizar {
+    background: #315eb0;
+    color: white;
+}
+
+.btn-voltar {
+    background: #e9edf4;
+    color: #35445c;
+}
+
+.btn-idioma {
+    min-width: 150px;
+    padding: 15px;
+}
+
+#areaSimulado {
+    display: none;
+}
+
+.barra-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.timer {
+    background: #edf3ff;
+    color: #244d91;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.timer.alerta {
+    background: #fff0f0;
+    color: #c0392b;
+}
+
+.progresso {
+    font-size: 13px;
+    color: #68758a;
+}
+
+.numero {
+    color: #315eb0;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.origem {
+    font-size: 12px;
+    color: #68758a;
+    margin-bottom: 18px;
+}
+
+#pdfQuestao {
+    width: 100%;
+    height: 650px;
+    border: 1px solid #dce3ed;
+    border-radius: 8px;
+    background: #f4f6fb;
+}
+
+.aviso-pdf {
+    font-size: 12px;
+    color: #68758a;
+    margin-top: 10px;
+}
+
+.respostas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn-resposta {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: 1px solid #dce3ed;
+    border-radius: 50%;
+    background: white;
+    color: #315eb0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn-resposta.selecionada {
+    background: #315eb0;
+    color: white;
+    border-color: #315eb0;
+}
+
+.navegacao {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+#resultado {
+    display: none;
+    text-align: center;
+}
+
+#resultado h2 {
+    color: #244d91;
+    margin-bottom: 15px;
+}
+
+.pontuacao {
+    font-size: 38px;
+    font-weight: 700;
+    color: #315eb0;
+    margin: 15px;
+}
+
+.gabarito {
+    text-align: left;
+    margin-top: 25px;
+    line-height: 2.2;
+    font-size: 13px;
+}
+
+#mensagemErro {
+    display: none;
+    color: #c0392b;
+    background: #fff0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+@media(max-width: 800px) {
+    .sidebar {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .topo {
+        align-items: flex-start;
+    }
+
+    #pdfQuestao {
+        height: 480px;
+    }
+
+    .questao {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">Aprende+ ENEM</div>
+
+    <a href="paginicial.html">Início</a>
+    <a href="pagmaterias.html">Matérias</a>
+    <a href="pagsimulados.html" class="active">Simulados</a>
+    <a href="pagcronograma.html">Cronograma</a>
+    <a href="pagredacao.html">Redação</a>
+
+    <a href="pagsimulados.html" class="voltar-menu">Voltar</a>
+
+</aside>
+
+<main>
+<div class="topo">
+    <h1>Simulado de Linguagens</h1>
+</div>
+    <section class="apresentacao">
+
+        <h2>Linguagens, Códigos e suas Tecnologias</h2>
+
+        <p>
+            Prepare-se para o ENEM respondendo questões
+            retiradas dos cadernos oficiais das provas.
+        </p>
+
+        <div class="info">
+            <span>20 questões aleatórias</span>
+            <span>40 minutos</span>
+            <span>Alternativas A, B, C, D e E</span>
+        </div>
+
+    </section>
+
+    <!-- ESCOLHA DO IDIOMA -->
+
+    <section class="escolha-idioma" id="escolhaIdioma">
+
+        <h2>Escolha seu idioma</h2>
+
+        <p>
+            Selecione o idioma da prova de Língua Estrangeira.
+            As outras 15 questões serão de conhecimentos gerais.
+        </p>
+
+        <div class="opcoes-idioma">
+
+            <button class="btn-idioma"
+                onclick="iniciarSimulado('ingles')">
+                Inglês
+            </button>
+
+            <button class="btn-idioma"
+                onclick="iniciarSimulado('espanhol')">
+                Espanhol
+            </button>
+
+        </div>
+
+        <div id="mensagemErro"></div>
+
+    </section>
+
+    <!-- SIMULADO -->
+
+    <section id="areaSimulado">
+
+        <div class="barra-superior">
+
+            <div class="progresso" id="progresso">
+                Questão 1 de 20
+            </div>
+
+            <div class="timer" id="timer">
+                40:00
+            </div>
+
+        </div>
+
+        <section class="questao">
+
+            <div class="numero" id="numeroQuestao">
+                QUESTÃO 01
+            </div>
+
+            <div class="origem" id="origemQuestao"></div>
+
+            <!-- IMAGEM ORIGINAL DO PDF -->
+
+            <iframe
+                id="pdfQuestao"
+                title="Questão original do ENEM">
+            </iframe>
+
+            <p class="aviso-pdf">
+                Questão apresentada diretamente do caderno original do ENEM.
+            </p>
+
+            <!-- SOMENTE AS LETRAS DAS ALTERNATIVAS -->
+
+            <div class="respostas" id="respostas">
+
+                <button class="btn-resposta" onclick="responder('A')">A</button>
+                <button class="btn-resposta" onclick="responder('B')">B</button>
+                <button class="btn-resposta" onclick="responder('C')">C</button>
+                <button class="btn-resposta" onclick="responder('D')">D</button>
+                <button class="btn-resposta" onclick="responder('E')">E</button>
+
+            </div>
+
+            <div class="navegacao">
+
+                <button class="btn-voltar"
+                    id="anterior"
+                    onclick="anterior()">
+                    Anterior
+                </button>
+
+                <button class="btn-proximo"
+                    id="proximo"
+                    onclick="proxima()">
+                    Próxima questão
+                </button>
+
+                <button class="btn-finalizar"
+                    id="finalizar"
+                    onclick="finalizar()"
+                    style="display:none">
+                    Finalizar simulado
+                </button>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- RESULTADO -->
+
+    <section id="resultado">
+
+        <h2>Simulado finalizado!</h2>
+
+        <p>Confira seu desempenho:</p>
+
+        <div class="pontuacao" id="pontuacao"></div>
+
+        <p id="detalhes"></p>
+
+        <div class="gabarito" id="gabarito"></div>
+
+        <button class="btn-proximo"
+            onclick="location.reload()">
+            Fazer outro simulado
+        </button>
+
+    </section>
+
+</main>
+
+<script>
+
+// CONFIGURAÇÕES
+
+const ENDPOINT = "buscar_questoes.php";
+const TEMPO_TOTAL = 40 * 60;
+
+let questoes = [];
+let respostas = [];
+let atual = 0;
+let tempoRestante = TEMPO_TOTAL;
+let intervalo = null;
+let finalizado = false;
+
+
+// INICIAR E BUSCAR QUESTÕES NO BANCO
+
+async function iniciarSimulado(idioma) {
+
+    const erro = document.getElementById("mensagemErro");
+
+    erro.style.display = "none";
+
+    document.getElementById("escolhaIdioma").style.display = "none";
+
+    document.getElementById("areaSimulado").style.display = "block";
+
+    document.getElementById("numeroQuestao").textContent =
+        "Carregando questões...";
+
+    try {
+
+        const resposta = await fetch(
+            ENDPOINT + "?idioma=" + encodeURIComponent(idioma),
+            { cache: "no-store" }
+        );
+
+        if (!resposta.ok) {
+            throw new Error("Não foi possível acessar o PHP.");
+        }
+
+        const dados = await resposta.json();
+
+        if (!dados.sucesso) {
+            throw new Error(dados.mensagem || "Erro ao buscar questões.");
+        }
+
+        if (!Array.isArray(dados.questoes) ||
+            dados.questoes.length !== 20) {
+            throw new Error("O banco não retornou as 20 questões.");
+        }
+
+        // CONFERE OS DADOS RECEBIDOS
+
+        questoes = dados.questoes;
+
+        for (const q of questoes) {
+
+            if (
+                !q.imagem ||
+                !q.pagina_inicio ||
+                !["A","B","C","D","E"].includes(q.resposta_correta)
+            ) {
+                throw new Error("Uma questão está com dados incompletos.");
+            }
+
+        }
+
+        respostas = new Array(questoes.length).fill(null);
+
+        atual = 0;
+        tempoRestante = TEMPO_TOTAL;
+        finalizado = false;
+
+        mostrarQuestao();
+
+        iniciarTimer();
+
+    } catch (erro) {
+
+        document.getElementById("areaSimulado").style.display = "none";
+
+        document.getElementById("escolhaIdioma").style.display = "block";
+
+        document.getElementById("mensagemErro").textContent =
+            erro.message;
+
+        document.getElementById("mensagemErro").style.display = "block";
+
+    }
+
+}
+
+
+// MOSTRAR QUESTÃO
+
+function mostrarQuestao() {
+
+    if (finalizado) return;
+
+    const q = questoes[atual];
+
+    document.getElementById("numeroQuestao").textContent =
+        "QUESTÃO " + String(atual + 1).padStart(2, "0");
+
+    document.getElementById("progresso").textContent =
+        "Questão " + (atual + 1) + " de " + questoes.length;
+
+    document.getElementById("origemQuestao").textContent =
+        "ENEM " + q.ano +
+        " | Questão original " + q.numero_questao +
+        " | " + q.idioma.toUpperCase();
+
+    // CARREGAR PÁGINA DO PDF
+
+    const caminhoPDF = encodeURI(q.imagem);
+
+    const pagina = Number(q.pagina_inicio);
+
+    document.getElementById("pdfQuestao").src =
+        caminhoPDF + "#page=" + pagina + "&toolbar=0&navpanes=0";
+
+    // MARCAR ALTERNATIVA ESCOLHIDA
+
+    document.querySelectorAll(".btn-resposta").forEach(botao => {
+
+        botao.classList.toggle(
+            "selecionada",
+            botao.textContent === respostas[atual]
+        );
+
+    });
+
+    document.getElementById("anterior").disabled =
+        atual === 0;
+
+    document.getElementById("proximo").style.display =
+        atual === questoes.length - 1 ? "none" : "block";
+
+    document.getElementById("finalizar").style.display =
+        atual === questoes.length - 1 ? "block" : "none";
+
+}
+
+
+// RESPONDER
+
+function responder(letra) {
+
+    if (finalizado) return;
+
+    respostas[atual] = letra;
+
+    mostrarQuestao();
+
+}
+
+
+// PRÓXIMA
+
+function proxima() {
+
+    if (atual < questoes.length - 1) {
+
+        atual++;
+
+        mostrarQuestao();
+
+    }
+
+}
+
+
+// ANTERIOR
+
+function anterior() {
+
+    if (atual > 0) {
+
+        atual--;
+
+        mostrarQuestao();
+
+    }
+
+}
+
+
+// CRONÔMETRO
+
+function iniciarTimer() {
+
+    atualizarTimer();
+
+    intervalo = setInterval(() => {
+
+        if (finalizado) return;
+
+        tempoRestante--;
+
+        atualizarTimer();
+
+        if (tempoRestante <= 0) {
+
+            finalizar(true);
+
+        }
+
+    }, 1000);
+
+}
+
+
+function atualizarTimer() {
+
+    const minutos = Math.floor(tempoRestante / 60);
+    const segundos = tempoRestante % 60;
+
+    const timer = document.getElementById("timer");
+
+    timer.textContent =
+        String(minutos).padStart(2, "0") + ":" +
+        String(segundos).padStart(2, "0");
+
+    timer.classList.toggle(
+        "alerta",
+        tempoRestante <= 300
+    );
+
+}
+
+
+// FINALIZAR E CORRIGIR
+
+async function finalizar(tempoEsgotado = false) {
+
+    if (finalizado) return;
+
+    const semResposta = respostas.filter(r => r === null).length;
+
+    if (!tempoEsgotado && semResposta > 0) {
+
+        const confirmar = confirm(
+            "Você ainda tem " + semResposta +
+            " questão(ões) sem resposta. Deseja finalizar?"
+        );
+
+        if (!confirmar) return;
+
+    }
+
+    finalizado = true;
+
+    clearInterval(intervalo);
+
+    let acertos = 0;
+
+    questoes.forEach((q, i) => {
+
+        if (
+            respostas[i] !== null &&
+            respostas[i] === q.resposta_correta
+        ) {
+            acertos++;
+        }
+
+    });
+
+    const erros = respostas.filter((r, i) =>
+        r !== null && r !== questoes[i].resposta_correta
+    ).length;
+
+    const naoRespondidas = semResposta;
+
+    document.getElementById("areaSimulado").style.display = "none";
+
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("pontuacao").textContent =
+        acertos + " / " + questoes.length;
+
+    document.getElementById("detalhes").textContent =
+        "Acertos: " + acertos +
+        " | Erros: " + erros +
+        " | Não respondidas: " + naoRespondidas;
+
+    const gabarito = document.getElementById("gabarito");
+
+    gabarito.innerHTML = "<h3>Conferência das respostas</h3>";
+
+    const letras = ["A", "B", "C", "D", "E"];
+
+    questoes.forEach((q, i) => {
+
+        const linha = document.createElement("p");
+
+        linha.textContent =
+            "Questão " + (i + 1) +
+            " (ENEM " + q.ano + " - nº " + q.numero_questao + ")" +
+            " | Sua resposta: " + (respostas[i] || "Não respondida") +
+            " | Correta: " + q.resposta_correta +
+            " | " +
+            (respostas[i] === q.resposta_correta
+                ? "Acertou"
+                : "Não acertou");
+
+        gabarito.appendChild(linha);
+
+    });
+
+    if (tempoEsgotado) {
+
+        const aviso = document.createElement("p");
+
+        aviso.textContent = "O tempo de 40 minutos acabou.";
+
+        gabarito.prepend(aviso);
+
+    }
+// SALVAR SIMULADO NO BANCO DE DADOS
+
+try {
+
+    const dadosParaSalvar = {
+        idioma: questoes[0].idioma,
+        iniciado_em: Math.floor(Date.now() / 1000) -
+                      (TEMPO_TOTAL - tempoRestante),
+
+        questoes: questoes.map((q, i) => ({
+            id: q.id,
+            resposta: respostas[i]
+        }))
+    };
+
+    const retorno = await fetch("salvar_simulados.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dadosParaSalvar)
+    });
+
+    const resultado = await retorno.json();
+
+    if (!resultado.sucesso) {
+        throw new Error(resultado.mensagem);
+    }
+
+    alert("Seu simulado foi salvo no histórico!");
+
+} catch (erro) {
+
+    alert("Não foi possível salvar o simulado: " + erro.message);
+
+}
+    window.scrollTo(0, 0);
+
+}
+
+</script>
+
+</body>
+</html>

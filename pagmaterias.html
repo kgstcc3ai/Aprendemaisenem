@@ -1,0 +1,921 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Matérias - Aprende+ ENEM</title>
+
+
+    <!-- FONTE -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ÍCONES -->
+
+    <script
+        src="https://kit.fontawesome.com/a2e0e6ad65.js"
+        crossorigin="anonymous">
+    </script>
+
+
+    <style>
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6fb;
+            color: #26364f;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           MENU LATERAL
+        ========================= */
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #163b7a,
+                    #315eb0
+                );
+
+            color: white;
+
+            padding: 30px 20px;
+
+            z-index: 1000;
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo span {
+            color: #8fc0ff;
+        }
+
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            padding: 14px;
+
+            color: white;
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background:
+                rgba(255, 255, 255, 0.15);
+
+            transform: translateX(3px);
+        }
+
+        .menu a.ativo {
+            background:
+                rgba(255, 255, 255, 0.18);
+        }
+
+        .menu i {
+            width: 20px;
+            text-align: center;
+        }
+
+
+        /* =========================
+           BOTÃO SAIR
+        ========================= */
+
+        .voltar {
+            position: absolute;
+
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+        }
+
+        .voltar a {
+            display: block;
+
+            padding: 12px;
+
+            text-align: center;
+
+            color: white;
+            text-decoration: none;
+
+            background:
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .voltar a:hover {
+            background:
+                rgba(255, 255, 255, 0.25);
+        }
+
+
+        /* =========================
+           CONTEÚDO PRINCIPAL
+        ========================= */
+
+        .main {
+            margin-left: 250px;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        .header {
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            color: #26364f;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           BARRA DE PESQUISA
+        ========================= */
+
+        .pesquisa {
+            background: white;
+
+            display: flex;
+            align-items: center;
+
+            padding: 14px 20px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.06);
+
+            margin-bottom: 35px;
+        }
+
+        .pesquisa i {
+            color: #315eb0;
+            margin-right: 12px;
+        }
+
+        .pesquisa input {
+            border: none;
+            outline: none;
+
+            width: 100%;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           TÍTULO
+        ========================= */
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #26364f;
+        }
+
+
+        /* =========================
+           GRID DAS MATÉRIAS
+        ========================= */
+
+        .materias-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+
+        /* =========================
+           CARD DA MATÉRIA
+        ========================= */
+
+        .materia-card {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.07);
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            border:
+                1px solid transparent;
+        }
+
+        .materia-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                #d8e5ff;
+
+            box-shadow:
+                0 15px 30px rgba(49, 94, 176, 0.15);
+        }
+
+
+        /* =========================
+           ÍCONE DA MATÉRIA
+        ========================= */
+
+        .icone-materia {
+
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #edf4ff;
+
+            color: #315eb0;
+
+            border-radius: 15px;
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           TEXTO DO CARD
+        ========================= */
+
+        .materia-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .materia-card p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           DISCIPLINAS
+        ========================= */
+
+        .disciplinas {
+            margin-top: 15px;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .disciplina {
+            background: #f1f5fb;
+
+            color: #315eb0;
+
+            padding: 6px 10px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+
+        /* =========================
+           TEXTO DO CARD
+        ========================= */
+
+        .acessar {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: #315eb0;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .sidebar {
+                width: 70px;
+                padding: 20px 10px;
+            }
+
+            .logo {
+                font-size: 0;
+            }
+
+            .logo::before {
+                content: "+";
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .menu a {
+                justify-content: center;
+                gap: 0;
+            }
+
+            .menu a span {
+                display: none;
+            }
+
+            .sair a span {
+                display: none;
+            }
+
+            .main {
+                margin-left: 70px;
+                padding: 25px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .materias-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         MENU LATERAL
+    ========================= -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            Aprende+ <span>ENEM</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <ul class="menu">
+
+
+            <li>
+
+                <a href="paginicial.html">
+
+                    <i class="fas fa-home"></i>
+
+                    <span>Início</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="pagmaterias.html"
+                    class="ativo">
+
+                    <i class="fas fa-book"></i>
+
+                    <span>Matérias</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="pagsimulados.html">
+
+                    <i class="fas fa-file-alt"></i>
+
+                    <span>Simulados</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="pagcronograma.html">
+
+                    <i class="fas fa-calendar-alt"></i>
+
+                    <span>Cronograma</span>
+
+                </a>
+
+            </li>
+            
+            <li>
+
+               <a href="pagredaçao.html">
+
+                  <i class="fas fa-pen"></i>
+                
+                  <span>Redação</span>
+                
+                </a>
+            
+            </li>  
+            
+    
+
+
+        </ul>
+
+
+        <!-- SAIR -->
+
+        <div class="voltar">
+
+            <a href="paginicial.html">
+
+                <i class="fas fa-sign-out-alt"></i>
+
+                <span>Voltar</span>
+
+            </a>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================= -->
+
+    <main class="main">
+
+
+        <!-- CABEÇALHO -->
+
+        <div class="header">
+
+            <h1>
+                Matérias 📚
+            </h1>
+
+            <p>
+                Escolha uma área do conhecimento para começar seus estudos.
+            </p>
+
+        </div>
+
+
+
+        <!-- TÍTULO -->
+
+        <h2 class="section-title">
+
+            Áreas do conhecimento
+
+        </h2>
+
+
+
+        <!-- =========================
+             CARDS DAS MATÉRIAS
+        ========================= -->
+
+        <div
+            class="materias-grid"
+            id="materiasGrid">
+
+
+            <!-- MATEMÁTICA -->
+
+            <div
+                class="materia-card"
+                onclick="window.location.href='matematica.html'"
+            
+             
+            >
+
+                <div class="icone-materia">
+
+                    <i class="fas fa-calculator"></i>
+
+                </div>
+
+
+                <h3>
+                    Matemática
+                </h3>
+
+
+                <p>
+                    Desenvolva seus conhecimentos em cálculos,
+                    lógica e resolução de problemas.
+                </p>
+
+
+                <div class="disciplinas">
+
+                    <span class="disciplina">
+                        Álgebra
+                    </span>
+
+                    <span class="disciplina">
+                        Geometria
+                    </span>
+
+                    <span class="disciplina">
+                        Funções
+                    </span>
+
+                </div>
+
+
+                <span class="acessar">
+
+                    Acessar conteúdos →
+
+                </span>
+
+            </div>
+
+
+
+            <!-- LINGUAGENS -->
+
+            <div
+                class="materia-card"
+                onclick="window.location.href='linguagem.html'"
+                data-nome="linguagens portugues literatura ingles espanhol artes educação física">
+
+                <div class="icone-materia">
+
+                    <i class="fas fa-book-open"></i>
+
+                </div>
+
+
+                <h3>
+                    Linguagens
+                </h3>
+
+
+                <p>
+                    Estude comunicação, interpretação e produção
+                    de diferentes tipos de textos.
+                </p>
+
+
+                <div class="disciplinas">
+
+                    <span class="disciplina">
+                        Português
+                    </span>
+
+                    <span class="disciplina">
+                        Literatura
+                    </span>
+
+                    <span class="disciplina">
+                        Inglês
+                    </span>
+
+                </div>
+
+
+                <span class="acessar">
+
+                    Acessar conteúdos →
+
+                </span>
+
+            </div>
+
+
+
+            <!-- CIÊNCIAS HUMANAS -->
+
+            <div
+                class="materia-card"
+                onclick="window.location.href='humanas.html'"
+                data-nome="ciencias humanas história historia geografia filosofia sociologia">
+
+                <div class="icone-materia">
+
+                    <i class="fas fa-globe-americas"></i>
+
+                </div>
+
+
+                <h3>
+                    Ciências Humanas
+                </h3>
+
+
+                <p>
+                    Conheça temas relacionados à sociedade,
+                    história, espaço geográfico e cultura.
+                </p>
+
+
+                <div class="disciplinas">
+
+                    <span class="disciplina">
+                        História
+                    </span>
+
+                    <span class="disciplina">
+                        Geografia
+                    </span>
+
+                    <span class="disciplina">
+                        Sociologia
+                    </span>
+
+                </div>
+
+
+                <span class="acessar">
+
+                    Acessar conteúdos →
+
+                </span>
+
+            </div>
+
+
+
+            <!-- CIÊNCIAS DA NATUREZA -->
+
+            <div
+                class="materia-card"
+                onclick="window.location.href='natureza.html'"
+                data-nome="ciencias natureza biologia química quimica física fisica">
+
+                <div class="icone-materia">
+
+                    <i class="fas fa-flask"></i>
+
+                </div>
+
+
+                <h3>
+                    Ciências da Natureza
+                </h3>
+
+
+                <p>
+                    Explore os conteúdos de Biologia,
+                    Química e Física.
+
+
+                </p>
+
+
+                <div class="disciplinas">
+
+                    <span class="disciplina">
+                        Biologia
+                    </span>
+
+                    <span class="disciplina">
+                        Química
+                    </span>
+
+                    <span class="disciplina">
+                        Física
+                    </span>
+
+                </div>
+
+
+                <span class="acessar">
+
+                    Acessar conteúdos →
+
+                </span>
+
+            </div>
+
+
+
+            <!-- REDAÇÃO -->
+
+            <div
+                class="materia-card"
+                onclick="window.location.href='redação.html'"
+                data-nome="redacao redação escrita produção textual">
+
+                <div class="icone-materia">
+
+                    <i class="fas fa-pen"></i>
+
+                </div>
+
+
+                <h3>
+                    Redação
+                </h3>
+
+
+                <p>
+                    Pratique a escrita e desenvolva suas habilidades
+                    para produzir textos dissertativo-argumentativos.
+                </p>
+
+
+                <div class="disciplinas">
+
+                    <span class="disciplina">
+                        Estrutura
+                    </span>
+
+                    <span class="disciplina">
+                        Argumentação
+                    </span>
+
+                    <span class="disciplina">
+                        Competências
+                    </span>
+
+                </div>
+
+
+                <span class="acessar">
+
+                    Acessar conteúdos →
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const pesquisa =
+            document.getElementById("pesquisa");
+
+        const cards =
+            document.querySelectorAll(".materia-card");
+
+
+        pesquisa.addEventListener(  
+            "input",
+            function () {
+
+                const texto =
+                    pesquisa.value.toLowerCase();
+
+
+                cards.forEach(
+                    function (card) {
+
+                        const nome =
+                            card.dataset.nome;
+
+
+                        if (
+                            nome.includes(texto)
+                        ) {
+
+                            card.style.display =
+                                "block";
+
+                        }
+
+                        else {
+
+                            card.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+

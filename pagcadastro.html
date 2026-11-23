@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Aprende+ ENEM</title>
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #edf2ff, #ffffff);
+            padding: 20px;
+        }
+
+        .cadastro-container {
+            width: 100%;
+            max-width: 400px;
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(20, 50, 100, 0.15);
+        }
+
+        .logo {
+            text-align: center;
+            color: #315eb0;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #16366e;
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 28px;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+            color: #263957;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d8e0ed;
+            border-radius: 9px;
+            padding: 0 13px;
+            transition: 0.3s;
+        }
+
+        .input-container:focus-within {
+            border-color: #315eb0;
+            box-shadow: 0 0 0 3px rgba(49, 94, 176, 0.1);
+        }
+
+        .input-container i {
+            color: #7183a2;
+            margin-right: 10px;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 13px 0;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 13px;
+            background: transparent;
+        }
+
+        .botao-cadastro {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #315eb0, #20458c);
+            color: white;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 5px;
+        }
+
+        .botao-cadastro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(49, 94, 176, 0.25);
+        }
+
+        .botao-cadastro:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            transform: none;
+        }
+
+        
+        .mensagem {
+            display: none;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .voltar {
+    display: block;
+    width: fit-content;
+    padding: 10px 25px;
+    background-color: #163b7a;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 10px auto 0;
+    text-align: center;
+}
+        
+
+        .voltar:hover {
+            background-color: #315eb0;
+        }
+
+        .login {
+            margin-top: 22px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .login a {
+            color: #315eb0;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        .login a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 450px) {
+            .cadastro-container {
+                padding: 30px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="cadastro-container">
+
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+
+        <h1>Criar conta</h1>
+
+        <p class="subtitulo">
+            Cadastre-se para começar a estudar com o Aprende+ ENEM.
+        </p>
+
+        <form id="formCadastro">
+
+            <div class="campo">
+                <label for="email">E-mail</label>
+
+                <div class="input-container">
+                    <i class="fas fa-envelope"></i>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+
+                <div class="input-container">
+                    <i class="fas fa-lock"></i>
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Crie uma senha"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="confirmarSenha">Confirmar senha</label>
+
+                <div class="input-container">
+                    <i class="fas fa-lock"></i>
+                    <input
+                        type="password"
+                        id="confirmarSenha"
+                        name="confirmarSenha"
+                        placeholder="Digite a senha novamente"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+            </div>
+
+            <button type="submit" class="botao-cadastro" id="botaoCadastro">
+                Cadastrar
+            </button>
+
+        </form>
+
+        <!-- Mensagem de retorno -->
+        <p id="mensagem" class="mensagem"></p>
+
+        <!-- Botão voltar -->
+        <a href="index.html" class="voltar">Voltar</a>
+
+    </main>
+
+    <script>
+        const formCadastro = document.getElementById("formCadastro");
+        const mensagem = document.getElementById("mensagem");
+        const botaoCadastro = document.getElementById("botaoCadastro");
+
+        function mostrarMensagem(texto, sucesso) {
+            mensagem.textContent = texto;
+            mensagem.style.color = sucesso ? "#237a45" : "#b42318";
+            mensagem.style.display = "block";
+        }
+
+        formCadastro.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value;
+            const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            if (senha.length < 8) {
+                mostrarMensagem(
+                    "A senha deve ter pelo menos 8 caracteres.",
+                    false
+                );
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                mostrarMensagem(
+                    "As senhas não coincidem. Tente novamente.",
+                    false
+                );
+                return;
+            }
+
+            botaoCadastro.disabled = true;
+            botaoCadastro.textContent = "Cadastrando...";
+            mensagem.style.display = "none";
+
+            try {
+                const resposta = await fetch("Cadastro.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        senha: senha
+                    })
+                });
+
+                const resultado = await resposta.json();
+
+                if (!resposta.ok || !resultado.sucesso) {
+                    mostrarMensagem(
+                        resultado.mensagem || "Não foi possível realizar o cadastro.",
+                        false
+                    );
+                    return;
+                }
+
+                mostrarMensagem(
+                    resultado.mensagem || "Cadastro realizado com sucesso!",
+                    true
+                );
+
+                window.location.href = "index.html";
+
+            } catch (erro) {
+                mostrarMensagem(
+                    "Não foi possível comunicar com o servidor. Verifique sua conexão.",
+                    false
+                );
+            } finally {
+                botaoCadastro.disabled = false;
+                botaoCadastro.textContent = "Cadastrar";
+            }
+        });
+    </script>
+
+</body>
+</html>

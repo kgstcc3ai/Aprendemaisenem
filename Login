@@ -1,0 +1,59 @@
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const formulario = document.getElementById("formLogin");
+
+    if (!formulario) {
+        alert("Erro: formulário de login não encontrado.");
+        return;
+    }
+
+    formulario.addEventListener("submit", async function (evento) {
+        evento.preventDefault();
+
+        alert("O botão Entrar está funcionando!");
+
+        const email = document.getElementById("emailLogin").value.trim();
+        const senha = document.getElementById("senha").value;
+        const botao = formulario.querySelector('button[type="submit"]');
+
+        if (!email || !senha) {
+            alert("Preencha o e-mail e a senha.");
+            return;
+        }
+
+        botao.disabled = true;
+        botao.textContent = "Entrando...";
+
+        try {
+            const resposta = await fetch("Login.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email: email, senha: senha })
+            });
+
+           
+const textoResposta = await resposta.text();
+
+let resultado;
+
+try {
+    resultado = JSON.parse(textoResposta);
+} catch (erro) {
+    console.error("Resposta recebida do PHP:", textoResposta);
+
+    alert(
+        "O PHP não retornou JSON válido.\n" +
+        "Código HTTP: " + resposta.status + "\n" +
+        "Resposta do servidor:\n" +
+        textoResposta.substring(0, 1000)
+    );
+
+    return;
+}
+        }}
+</script>
+</body>
+</html>

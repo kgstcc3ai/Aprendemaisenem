@@ -1,0 +1,750 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulados - Aprende+ ENEM</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a2e0e6ad65.js"
+        crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6fb;
+            color: #26364f;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(180deg, #163b7a, #315eb0);
+            color: white;
+            padding: 30px 20px;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo span {
+            color: #8fc0ff;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(3px);
+        }
+
+        .menu a.ativo {
+            background: rgba(255,255,255,0.18);
+        }
+
+        .menu i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .sair {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+        }
+
+        .sair a {
+            display: block;
+            padding: 12px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.12);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .sair a:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .main {
+            margin-left: 250px;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 15px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #26364f;
+        }
+
+        .simulados {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .simulado-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .simulado-card:hover {
+            transform: translateY(-6px);
+            border-color: #d8e5ff;
+            box-shadow: 0 15px 30px rgba(49,94,176,0.15);
+        }
+
+        .icone {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #edf4ff;
+            color: #315eb0;
+            border-radius: 15px;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .simulado-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .simulado-card p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .informacoes {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .informacao {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #718096;
+            font-size: 13px;
+        }
+
+        .informacao i {
+            color: #315eb0;
+        }
+
+        .btn-iniciar {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #315eb0;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-iniciar:hover {
+            background: #244b91;
+            transform: translateY(-2px);
+        }
+
+        .destaque {
+            margin-top: 35px;
+            background: linear-gradient(135deg, #163b7a, #315eb0);
+            color: white;
+            padding: 28px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .destaque-texto h2 {
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .destaque-texto p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .destaque i {
+            font-size: 55px;
+            color: #ffd76a;
+        }
+
+        .historico {
+            margin-top: 35px;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+        }
+
+        .historico-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #edf0f5;
+            gap: 15px;
+        }
+
+        .historico-item:last-child {
+            border-bottom: none;
+        }
+
+        .historico-nome {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .historico-nome i {
+            color: #315eb0;
+            font-size: 20px;
+        }
+
+        .historico-nome h4 {
+            font-size: 14px;
+        }
+
+        .historico-nome p {
+            color: #718096;
+            font-size: 12px;
+        }
+
+        .resultado {
+            font-weight: 600;
+            color: #315eb0;
+            font-size: 14px;
+        }
+
+        /* JANELA DE ESCOLHA DO IDIOMA */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-conteudo {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            padding: 35px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .modal-conteudo h2 {
+            color: #26364f;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .modal-conteudo p {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .opcao-idioma {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 12px;
+            border: 1px solid #d8e5ff;
+            border-radius: 10px;
+            background: #edf4ff;
+            color: #315eb0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .opcao-idioma:hover {
+            background: #315eb0;
+            color: white;
+        }
+
+        .fechar {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: none;
+            border-radius: 10px;
+            background: #718096;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+        }
+
+        @media (max-width: 800px) {
+            .sidebar {
+                width: 70px;
+                padding: 20px 10px;
+            }
+
+            .logo {
+                font-size: 0;
+            }
+
+            .logo::before {
+                content: "+";
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .menu a {
+                justify-content: center;
+                gap: 0;
+            }
+
+            .menu a span {
+                display: none;
+            }
+
+            .sair a span {
+                display: none;
+            }
+
+            .main {
+                margin-left: 70px;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .simulados {
+                grid-template-columns: 1fr;
+            }
+
+            .destaque {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .historico-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            Aprende+ <span>ENEM</span>
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="paginicial.html">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagmaterias.html">
+                    <i class="fas fa-book"></i>
+                    <span>Matérias</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagsimulados.html" class="ativo">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Simulados</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="pagcronograma.html">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Cronograma</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="sair">
+            <a href="index.html">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="header">
+            <h1>Simulados 📝</h1>
+            <p>Teste seus conhecimentos e prepare-se para o ENEM.</p>
+        </div>
+
+        <h2 class="section-title">Simulados disponíveis</h2>
+
+        <div class="simulados" id="simulados">
+
+            <div class="simulado-card"
+                data-nome="simulado linguagens português literatura">
+
+                <div class="icone">
+                    <i class="fas fa-book-open"></i>
+                </div>
+
+                <h3>Linguagens e Códigos</h3>
+
+                <p>
+                    Teste seus conhecimentos em interpretação,
+                    literatura e linguagem.
+                </p>
+
+                <div class="informacoes">
+
+                    <div class="informacao">
+                        <i class="fas fa-question-circle"></i>
+                        <span>20 questões</span>
+                    </div>
+
+                    <div class="informacao">
+                        <i class="fas fa-clock"></i>
+                        <span>40 minutos</span>
+                    </div>
+
+                </div>
+
+                <button class="btn-iniciar"
+                    onclick="abrirEscolhaIdioma()">
+                    Iniciar simulado
+                </button>
+
+            </div>
+
+
+            <div class="simulado-card"
+                data-nome="simulado matemática">
+
+                <div class="icone">
+                    <i class="fas fa-calculator"></i>
+                </div>
+
+                <h3>Matemática</h3>
+
+                <p>
+                    Resolva questões de matemática
+                    semelhantes às encontradas no ENEM.
+                </p>
+
+                <div class="informacoes">
+                    <div class="informacao">
+                        <i class="fas fa-question-circle"></i>
+                        <span>20 questões</span>
+                    </div>
+
+                    <div class="informacao">
+                        <i class="fas fa-clock"></i>
+                        <span>50 minutos</span>
+                    </div>
+                </div>
+
+                <button class="btn-iniciar"
+                    onclick="alert('Este simulado ainda não está disponível.')">
+                    Iniciar simulado
+                </button>
+
+            </div>
+
+
+            <div class="simulado-card"
+                data-nome="simulado ciências humanas história geografia">
+
+                <div class="icone">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+
+                <h3>Ciências Humanas</h3>
+
+                <p>
+                    Pratique História, Geografia,
+                    Filosofia e Sociologia.
+                </p>
+
+                <div class="informacoes">
+                    <div class="informacao">
+                        <i class="fas fa-question-circle"></i>
+                        <span>20 questões</span>
+                    </div>
+
+                    <div class="informacao">
+                        <i class="fas fa-clock"></i>
+                        <span>40 minutos</span>
+                    </div>
+                </div>
+
+                <button class="btn-iniciar"
+                    onclick="alert('Este simulado ainda não está disponível.')">
+                    Iniciar simulado
+                </button>
+
+            </div>
+
+
+            <div class="simulado-card"
+                data-nome="simulado ciências da natureza biologia química física">
+
+                <div class="icone">
+                    <i class="fas fa-flask"></i>
+                </div>
+
+                <h3>Ciências da Natureza</h3>
+
+                <p>
+                    Resolva questões de Biologia,
+                    Química e Física.
+                </p>
+
+                <div class="informacoes">
+                    <div class="informacao">
+                        <i class="fas fa-question-circle"></i>
+                        <span>20 questões</span>
+                    </div>
+
+                    <div class="informacao">
+                        <i class="fas fa-clock"></i>
+                        <span>45 minutos</span>
+                    </div>
+                </div>
+
+                <button class="btn-iniciar"
+                    onclick="alert('Este simulado ainda não está disponível.')">
+                    Iniciar simulado
+                </button>
+
+            </div>
+
+
+            <div class="simulado-card"
+                data-nome="simulado geral enem">
+
+                <div class="icone">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+
+                <h3>Simulado Geral ENEM</h3>
+
+                <p>
+                    Uma preparação completa reunindo
+                    diferentes áreas do conhecimento.
+                </p>
+
+                <div class="informacoes">
+                    <div class="informacao">
+                        <i class="fas fa-question-circle"></i>
+                        <span>40 questões</span>
+                    </div>
+
+                    <div class="informacao">
+                        <i class="fas fa-clock"></i>
+                        <span>90 minutos</span>
+                    </div>
+                </div>
+
+                <button class="btn-iniciar"
+                    onclick="alert('Este simulado ainda não está disponível.')">
+                    Iniciar simulado
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="destaque">
+
+            <div class="destaque-texto">
+                <h2>🎯 Desafie seus conhecimentos!</h2>
+
+                <p>
+                    Escolha um simulado e pratique seus conhecimentos.
+                    Ao finalizar, você poderá conferir seu resultado.
+                </p>
+            </div>
+
+            <i class="fas fa-trophy"></i>
+
+        </div>
+
+        <div class="historico">
+
+            <h2 class="section-title">
+                Simulados realizados
+            </h2>
+
+            <p style="color:#718096;font-size:14px;">
+                Seu histórico de simulados será exibido aqui.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <div class="modal" id="modalIdioma">
+
+        <div class="modal-conteudo">
+
+            <h2>Escolha o idioma</h2>
+
+            <p>
+                Selecione o idioma da prova de Linguagens
+                para começar seu simulado.
+            </p>
+
+            <button class="opcao-idioma"
+                onclick="iniciarSimulado('ingles')">
+
+                <i class="fas fa-globe"></i>
+                Inglês
+
+            </button>
+
+            <button class="opcao-idioma"
+                onclick="iniciarSimulado('espanhol')">
+
+                <i class="fas fa-globe"></i>
+                Espanhol
+
+            </button>
+
+            <button class="fechar"
+                onclick="fecharEscolhaIdioma()">
+
+                Cancelar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function abrirEscolhaIdioma() {
+            document.getElementById("modalIdioma").style.display = "flex";
+        }
+
+        function fecharEscolhaIdioma() {
+            document.getElementById("modalIdioma").style.display = "none";
+        }
+
+        function iniciarSimulado(idioma) {
+
+            if (idioma !== "ingles" && idioma !== "espanhol") {
+                return;
+            }
+
+            fecharEscolhaIdioma();
+
+            window.location.href =
+                "simulado_enem.php?idioma=" + idioma;
+        }
+
+        document.getElementById("modalIdioma")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+                    fecharEscolhaIdioma();
+                }
+
+            });
+
+    </script>
+
+</body>
+</html>

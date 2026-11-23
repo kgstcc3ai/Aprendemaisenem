@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+
+    <title>Humanas - Aprende+ ENEM</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6fb;
+            color: #17345f;
+            padding: 35px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cabecalho {
+            margin-bottom: 30px;
+        }
+
+        .voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #315eb0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .voltar:hover {
+            color: #163b7a;
+        }
+
+        .cabecalho h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #17345f;
+            margin-bottom: 8px;
+        }
+
+        .cabecalho p {
+            color: #71819d;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .card-conteudo {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 5px 20px rgba(30, 60, 100, 0.04);
+            margin-bottom: 25px;
+        }
+
+        .topo-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icone {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: #eaf0ff;
+            color: #315eb0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            flex-shrink: 0;
+        }
+
+        .topo-card h2 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .topo-card p {
+            color: #71819d;
+            font-size: 13px;
+        }
+
+        .descricao {
+            font-size: 14px;
+            color: #71819d;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .links-estudo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-estudo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f3f6ff;
+            color: #315eb0;
+            text-decoration: none;
+            padding: 14px 16px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .link-estudo:hover {
+            background: #e5ecff;
+            transform: translateY(-1px);
+        }
+
+        .videoaulas h2 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            font-size: 13px;
+            color: #71819d;
+            margin-bottom: 18px;
+        }
+
+        .item-video {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 0;
+            border-bottom: 1px solid #edf0f6;
+        }
+
+        .item-video:last-child {
+            border-bottom: none;
+        }
+
+        .info-video {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icone-video {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #fff0f0;
+            color: #df4545;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            flex-shrink: 0;
+        }
+
+        .info-video h3 {
+            font-size: 13px;
+            color: #17345f;
+            margin-bottom: 5px;
+        }
+
+        .info-video p {
+            font-size: 12px;
+            color: #71819d;
+            line-height: 1.6;
+        }
+
+        .botao {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #315eb0;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .botao:hover {
+            background: #234b94;
+        }
+
+        .dica {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 22px;
+            background: #fff7e7;
+            border: 1px solid #ffe3a3;
+            border-radius: 14px;
+        }
+
+        .dica i {
+            color: #e2a116;
+            font-size: 21px;
+            margin-top: 2px;
+        }
+
+        .dica h3 {
+            color: #17345f;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .dica p {
+            color: #806d4f;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* MODAL */
+
+        .modal-video {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(10, 25, 50, 0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-conteudo {
+            position: relative;
+            background: #ffffff;
+            width: 100%;
+            max-width: 1000px;
+            height: 80vh;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .fechar-modal {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: #ffffff;
+            color: #17345f;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .fechar-modal:hover {
+            background: #eaf0ff;
+        }
+
+        /* ÁREA DOS VÍDEOS */
+
+        .video-responsivo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-responsivo iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ÁREA DO MATERIAL DE LEITURA */
+
+        .material-leitura {
+            display: none;
+            height: 100%;
+            overflow-y: auto;
+            padding: 15px 25px 25px;
+            color: #17345f;
+        }
+
+        .material-leitura h2 {
+            font-size: 23px;
+            margin-bottom: 10px;
+            color: #17345f;
+        }
+
+        .material-leitura .introducao {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #71819d;
+            margin-bottom: 25px;
+        }
+
+        .material-leitura h3 {
+            font-size: 16px;
+            margin: 24px 0 10px;
+            color: #315eb0;
+        }
+
+        .material-leitura p {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #586b87;
+            margin-bottom: 12px;
+        }
+
+        .material-leitura ul {
+            padding-left: 22px;
+            margin-bottom: 15px;
+            color: #586b87;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .caixa-exemplo {
+            background: #f3f6ff;
+            border-left: 4px solid #315eb0;
+            padding: 18px;
+            border-radius: 9px;
+            margin: 15px 0;
+        }
+
+        .caixa-exemplo h4 {
+            font-size: 13px;
+            margin-bottom: 9px;
+            color: #315eb0;
+        }
+
+        .caixa-exemplo p {
+            margin-bottom: 5px;
+        }
+
+        .formula {
+            display: inline-block;
+            background: #eaf0ff;
+            color: #234b94;
+            padding: 9px 15px;
+            border-radius: 7px;
+            font-weight: 600;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .destaque-leitura {
+            background: #fff7e7;
+            border: 1px solid #ffe3a3;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+
+        .destaque-leitura p {
+            color: #806d4f;
+            margin: 0;
+        }
+
+        .botao-fonte {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #315eb0;
+            color: white;
+            text-decoration: none;
+            padding: 12px 17px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .botao-fonte:hover {
+            background: #234b94;
+        }
+
+        .questao {
+            background: #f3f6ff;
+            border-left: 4px solid #315eb0;
+            padding: 18px;
+            border-radius: 9px;
+            margin: 15px 0;
+        }
+
+        .questao summary {
+            cursor: pointer;
+            color: #315eb0;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 700px) {
+            body {
+                padding: 20px 14px;
+            }
+
+            .cabecalho h1 {
+                font-size: 23px;
+            }
+
+            .card-conteudo {
+                padding: 20px;
+            }
+
+            .item-video {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .botao {
+                margin-left: 60px;
+            }
+
+            .modal-conteudo {
+                height: 85vh;
+                padding: 10px;
+            }
+
+            .material-leitura {
+                padding: 15px 10px;
+            }
+
+            .material-leitura h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="cabecalho">
+
+            <a href="pagmaterias.html" class="voltar">
+                <i class="fa-solid fa-arrow-left"></i>
+                Voltar
+            </a>
+
+            <h1>Humanas</h1>
+
+            <p>
+                Estude os principais conteúdos de humanas e
+                arrebente na prova.
+            </p>
+
+        </header>
+
+        <section class="card-conteudo">
+
+            <div class="topo-card">
+
+                <div class="icone">
+                    <i class="fa-solid fa-percent"></i>
+                </div>
+
+                <div>
+                    <h2>Era Vargas</h2>
+                    <p>Aprenda tudo sobre Era Vargas para o Enem.</p>
+                </div>
+
+            </div>
+
+            <p class="descricao">
+                Estude História e compreenda as transformações da
+                sociedade e prepare-se para interpretar questões
+                de Ciências Humanas no ENEM.
+            </p>
+
+            <div class="links-estudo">
+
+                <button class="link-estudo"
+                        onclick="abrirVideo('jQU6Ojetq8M')">
+
+                    <i class="fa-brands fa-youtube"></i>
+                    Assistir videoaula
+
+                </button>
+
+                <button class="link-estudo"
+                        onclick="abrirConteudo()">
+
+                    <i class="fa-solid fa-book"></i>
+                    Acessar conteúdos e explicações sobre Era Vargas.
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- VIDEOAULAS RECOMENDADAS -->
+
+        <section class="card-conteudo videoaulas">
+
+            <h2>
+                Videoaulas recomendadas
+                <i class="fa-brands fa-youtube" style="color: #df4545;"></i>
+            </h2>
+
+            <p class="subtitulo">
+                Acesse aulas e revisões para reforçar seus conhecimentos.
+            </p>
+
+            <div class="item-video">
+
+                <div class="info-video">
+
+                    <div class="icone-video">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+
+                    <div>
+                        <h3>Toda a História pro Enem em um unico vídeo.</h3>
+
+                        <p>
+                            Aprenda tudo sem complicação.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao"
+                        onclick="abrirVideo('-8gzAYNfeXM')">
+
+                    <i class="fa-brands fa-youtube"></i>
+                    Assistir aula
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- DICA DE ESTUDO -->
+
+        <section class="dica">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <div>
+
+                <h3>Dica para seus estudos.</h3>
+
+                <p>
+                    Não tente decorar tudo. Procure entender o motivo
+                    dos acontecimentos, suas consequências e como
+                    eles se relacionam.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL -->
+
+    <div class="modal-video" id="modalVideo">
+
+        <div class="modal-conteudo">
+
+            <button
+                class="fechar-modal"
+                onclick="fecharModal()"
+                aria-label="Fechar janela">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <!-- ÁREA DO VÍDEO -->
+
+            <div class="video-responsivo" id="areaVideo">
+
+                <iframe
+                    id="iframeVideo"
+                    src=""
+                    title="Videoaula do Aprende+ ENEM"
+                    referrerpolicy="origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <!-- MATERIAL DE LEITURA -->
+
+            <div class="material-leitura" id="areaConteudo">
+
+                <h2>
+                    <i class="fa-solid fa-book-open"></i>
+                    Era Vargas
+                </h2>
+
+                <p class="introducao">
+                    A Era Vargas foi um período da história brasileira
+                    marcado pelo governo de Getúlio Vargas, entre 1930
+                    e 1945, e posteriormente entre 1951 e 1954.
+                    Esse período foi caracterizado por importantes
+                    transformações políticas, econômicas e sociais,
+                    como a centralização do poder, a industrialização
+                    e a criação de direitos trabalhistas.
+                </p>
+
+                <h3>1. Revolução de 1930</h3>
+
+                <p>
+                    A Revolução de 1930 marcou o fim da República Velha
+                    e o início do governo de Getúlio Vargas. O movimento
+                    ocorreu em meio à insatisfação com a política do
+                    café com leite, que alternava o poder principalmente
+                    entre São Paulo e Minas Gerais.
+                </p>
+
+                <p><strong>Principais acontecimentos:</strong></p>
+
+                <ul>
+                    <li>Crise da República Velha;</li>
+                    <li>Insatisfação com as oligarquias rurais;</li>
+                    <li>Revolução de 1930;</li>
+                    <li>Fim do governo de Washington Luís;</li>
+                    <li>Chegada de Getúlio Vargas ao poder.</li>
+                </ul>
+
+                <h3>2. Governo Provisório (1930–1934)</h3>
+
+                <p>
+                    Após a Revolução de 1930, Getúlio Vargas assumiu
+                    o poder e iniciou a reorganização do Estado brasileiro,
+                    concentrando as decisões políticas no governo federal.
+                </p>
+
+                <ul>
+                    <li>Fechamento do Congresso Nacional;</li>
+                    <li>Nomeação de interventores para os estados;</li>
+                    <li>Centralização do poder político;</li>
+                    <li>Criação do Ministério do Trabalho;</li>
+                    <li>Revolução Constitucionalista de 1932.</li>
+                </ul>
+
+                <h3>3. Governo Constitucional (1934–1937)</h3>
+
+                <p>
+                    Em 1934, foi promulgada uma nova Constituição,
+                    que trouxe mudanças políticas e sociais para o Brasil.
+                    Vargas foi eleito indiretamente para continuar na presidência.
+                </p>
+
+                <p><strong>Principais características:</strong></p>
+
+                <ul>
+                    <li>Voto secreto;</li>
+                    <li>Reconhecimento do voto feminino;</li>
+                    <li>Garantias trabalhistas;</li>
+                    <li>Eleição indireta de Getúlio Vargas;</li>
+                    <li>Fortalecimento da legislação social.</li>
+                </ul>
+
+                <p><strong>Movimentos políticos do período:</strong></p>
+
+                <ul>
+                    <li>
+                        <strong>AIB:</strong> Ação Integralista Brasileira,
+                        movimento de inspiração fascista, nacionalista
+                        e autoritária.
+                    </li>
+
+                    <li>
+                        <strong>ANL:</strong> Aliança Nacional Libertadora,
+                        movimento de oposição ao fascismo, com participação
+                        de comunistas e outros setores de esquerda.
+                    </li>
+
+                    <li>
+                        <strong>Intentona Comunista (1935):</strong>
+                        revolta organizada por setores ligados à ANL.
+                    </li>
+                </ul>
+
+                <h3>4. Estado Novo (1937–1945)</h3>
+
+                <p>
+                    O Estado Novo foi uma ditadura instaurada por
+                    Getúlio Vargas em 1937. O presidente utilizou
+                    o Plano Cohen, uma falsa ameaça comunista,
+                    como justificativa para o golpe.
+                </p>
+
+                <p><strong>Principais características:</strong></p>
+
+                <ul>
+                    <li>Fechamento do Congresso Nacional;</li>
+                    <li>Extinção dos partidos políticos;</li>
+                    <li>Censura à imprensa;</li>
+                    <li>Repressão aos opositores;</li>
+                    <li>Concentração do poder nas mãos do presidente;</li>
+                    <li>Propaganda política por meio do DIP.</li>
+                </ul>
+
+                <p>
+                    O DIP (Departamento de Imprensa e Propaganda)
+                    controlava informações e promovia a imagem positiva
+                    de Vargas, conhecido como "pai dos pobres".
+                </p>
+
+                <h3>5. Industrialização e economia</h3>
+
+                <p>
+                    Durante a Era Vargas, o Brasil passou por um processo
+                    de fortalecimento da indústria nacional, com maior
+                    participação do Estado na economia.
+                </p>
+
+                <ul>
+                    <li>Incentivo à industrialização;</li>
+                    <li>Criação da Companhia Siderúrgica Nacional (CSN), em 1941;</li>
+                    <li>Fundação da Companhia Vale do Rio Doce, em 1942;</li>
+                    <li>Fortalecimento da produção nacional;</li>
+                    <li>Busca pela redução da dependência de produtos importados.</li>
+                </ul>
+
+                <h3>6. Direitos trabalhistas</h3>
+
+                <p>
+                    Uma das principais marcas do governo Vargas foi
+                    a criação e ampliação dos direitos dos trabalhadores
+                    urbanos.
+                </p>
+
+                <ul>
+                    <li>Criação do salário mínimo (1940);</li>
+                    <li>Organização da Justiça do Trabalho (1941);</li>
+                    <li>Criação da Consolidação das Leis do Trabalho (CLT), em 1943;</li>
+                    <li>Regulamentação da jornada de trabalho;</li>
+                    <li>Férias remuneradas.</li>
+                </ul>
+
+                <p>
+                    É importante lembrar que esses direitos não alcançaram
+                    todos os trabalhadores da mesma maneira. Os trabalhadores
+                    rurais, por exemplo, ficaram inicialmente excluídos
+                    de grande parte dessas garantias.
+                </p>
+
+                <h3>7. Brasil na Segunda Guerra Mundial</h3>
+
+                <p>
+                    Durante a Segunda Guerra Mundial (1939–1945),
+                    o Brasil inicialmente manteve uma posição de neutralidade.
+                    Em 1942, após ataques de submarinos alemães a navios
+                    brasileiros, declarou guerra às potências do Eixo.
+                </p>
+
+                <ul>
+                    <li>Aproximação com os países Aliados;</li>
+                    <li>Envio da Força Expedicionária Brasileira (FEB) à Itália;</li>
+                    <li>Participação brasileira na luta contra o nazifascismo.</li>
+                </ul>
+
+                <p>
+                    A participação na guerra aumentou as contradições
+                    do Estado Novo, pois o Brasil combatia regimes
+                    autoritários no exterior, enquanto mantinha
+                    uma ditadura internamente.
+                </p>
+
+                <h3>8. Fim do Estado Novo e segundo governo</h3>
+
+                <p>
+                    Em 1945, Getúlio Vargas foi deposto pelos militares,
+                    encerrando o Estado Novo. A pressão pela
+                    redemocratização foi um dos fatores que contribuíram
+                    para o fim da ditadura.
+                </p>
+
+                <p>
+                    Em 1951, Vargas voltou à presidência por meio
+                    de eleições diretas. Seu segundo governo terminou
+                    em 1954, quando cometeu suicídio em 24 de agosto.
+                </p>
+
+                <h3>9. O que mais cai no ENEM?</h3>
+
+                <ul>
+                    <li>Revolução de 1930 e fim da República Velha;</li>
+                    <li>Centralização política;</li>
+                    <li>Estado Novo e autoritarismo;</li>
+                    <li>Propaganda política e controle da imprensa;</li>
+                    <li>Criação da CLT e direitos trabalhistas;</li>
+                    <li>Industrialização brasileira;</li>
+                    <li>Participação do Brasil na Segunda Guerra Mundial;</li>
+                    <li>Contradições entre democracia e ditadura.</li>
+                </ul>
+
+                <h3>10. Questões para revisar</h3>
+
+                <div class="questao">
+
+                    <p><strong>Questão 1 – Revolução de 1930</strong></p>
+
+                    <p>
+                        A Revolução de 1930 representou uma importante
+                        transformação política na história brasileira.
+                        Uma de suas principais consequências foi:
+                    </p>
+
+                    <ul>
+                        <li>A) O fortalecimento da política do café com leite.</li>
+                        <li>B) A manutenção das oligarquias no poder.</li>
+                        <li>C) O fim da República Velha e a chegada de Vargas ao poder.</li>
+                        <li>D) A implantação imediata da democracia plena.</li>
+                        <li>E) A independência política do Brasil.</li>
+                    </ul>
+
+                    <details>
+                        <summary>Ver resposta</summary>
+
+                        <p><strong>Alternativa correta: C.</strong></p>
+
+                        <p>
+                            A Revolução de 1930 encerrou a República Velha
+                            e iniciou o governo de Getúlio Vargas.
+                        </p>
+                    </details>
+
+                </div>
+
+                <div class="questao">
+
+                    <p><strong>Questão 2 – Estado Novo</strong></p>
+
+                    <p>
+                        Durante o Estado Novo (1937–1945), Getúlio Vargas
+                        adotou medidas autoritárias para fortalecer
+                        seu governo. Uma característica desse período foi:
+                    </p>
+
+                    <ul>
+                        <li>A) A liberdade total de imprensa.</li>
+                        <li>B) A realização de eleições presidenciais diretas.</li>
+                        <li>C) O fortalecimento dos partidos políticos.</li>
+                        <li>D) A censura e a repressão aos opositores.</li>
+                        <li>E) A descentralização do poder.</li>
+                    </ul>
+
+                    <details>
+                        <summary>Ver resposta</summary>
+
+                        <p><strong>Alternativa correta: D.</strong></p>
+
+                        <p>
+                            O Estado Novo foi uma ditadura marcada
+                            pela censura, repressão política e
+                            concentração de poder.
+                        </p>
+                    </details>
+
+                </div>
+
+                <div class="questao">
+
+                    <p><strong>Questão 3 – Direitos trabalhistas</strong></p>
+
+                    <p>
+                        A criação da Consolidação das Leis do Trabalho
+                        (CLT), em 1943, durante o governo Vargas, representou:
+                    </p>
+
+                    <ul>
+                        <li>A) A eliminação das relações entre patrões e empregados.</li>
+                        <li>B) A regulamentação dos direitos e das relações trabalhistas.</li>
+                        <li>C) O fim da industrialização brasileira.</li>
+                        <li>D) A extinção dos sindicatos.</li>
+                        <li>E) A criação de direitos exclusivamente rurais.</li>
+                    </ul>
+
+                    <details>
+                        <summary>Ver resposta</summary>
+
+                        <p><strong>Alternativa correta: B.</strong></p>
+
+                        <p>
+                            A CLT reuniu e sistematizou normas que
+                            regulamentavam as relações de trabalho no Brasil.
+                        </p>
+                    </details>
+
+                </div>
+
+                <div class="questao">
+
+                    <p><strong>Questão 4 – Segunda Guerra Mundial</strong></p>
+
+                    <p>
+                        A participação brasileira na Segunda Guerra Mundial
+                        gerou uma contradição política interna porque:
+                    </p>
+
+                    <ul>
+                        <li>A) O Brasil apoiava o nazismo durante a guerra.</li>
+                        <li>B) O país combatia regimes autoritários no exterior, mas mantinha uma ditadura internamente.</li>
+                        <li>C) O Brasil se recusou a participar do conflito.</li>
+                        <li>D) A guerra fortaleceu a monarquia brasileira.</li>
+                        <li>E) O país rompeu relações com todos os Aliados.</li>
+                    </ul>
+
+                    <details>
+                        <summary>Ver resposta</summary>
+
+                        <p><strong>Alternativa correta: B.</strong></p>
+
+                        <p>
+                            A contradição entre lutar contra regimes
+                            autoritários e manter o Estado Novo aumentou
+                            a pressão pela redemocratização.
+                        </p>
+                    </details>
+
+                </div>
+
+                <h3>11. Resumo final</h3>
+
+                <p>
+                    A Era Vargas foi marcada por três grandes fases:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Governo Provisório (1930–1934):</strong>
+                        centralização do poder e reorganização política.
+                    </li>
+
+                    <li>
+                        <strong>Governo Constitucional (1934–1937):</strong>
+                        nova Constituição e disputas políticas.
+                    </li>
+
+                    <li>
+                        <strong>Estado Novo (1937–1945):</strong>
+                        ditadura, censura, propaganda e industrialização.
+                    </li>
+                </ul>
+
+                <p><strong>Palavras-chave para memorizar:</strong></p>
+
+                <p>
+                    Revolução de 1930, centralização, Constituição de 1934,
+                    Estado Novo, DIP, CLT, industrialização e redemocratização.
+                </p>
+
+            </div>
+            <!-- FIM DO MATERIAL DE LEITURA -->
+
+        </div>
+        <!-- FIM DO MODAL-CONTEUDO -->
+
+    </div>
+    <!-- FIM DO MODAL -->
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const modal = document.getElementById("modalVideo");
+        const iframe = document.getElementById("iframeVideo");
+
+        const areaVideo = document.getElementById("areaVideo");
+        const areaConteudo = document.getElementById("areaConteudo");
+
+        // ABRIR VÍDEO DO YOUTUBE
+
+        function abrirVideo(idVideo) {
+
+            areaVideo.style.display = "block";
+            areaConteudo.style.display = "none";
+
+            iframe.src = "https://www.youtube-nocookie.com/embed/"
+                + idVideo + "?autoplay=1&rel=0";
+
+            modal.style.display = "flex";
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+        // ABRIR MATERIAL DE LEITURA
+
+        function abrirConteudo() {
+
+            iframe.src = "";
+
+            areaVideo.style.display = "none";
+            areaConteudo.style.display = "block";
+
+            modal.style.display = "flex";
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+        // FECHAR MODAL
+
+        function fecharModal() {
+
+            modal.style.display = "none";
+
+            iframe.src = "";
+
+            areaVideo.style.display = "block";
+            areaConteudo.style.display = "none";
+
+            document.body.style.overflow = "";
+
+        }
+
+        // FECHAR AO CLICAR FORA DO MODAL
+
+        modal.addEventListener("click", function(event) {
+
+            if (event.target === modal) {
+                fecharModal();
+            }
+
+        });
+
+        // FECHAR AO PRESSIONAR ESC
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape" &&
+                modal.style.display === "flex") {
+
+                fecharModal();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

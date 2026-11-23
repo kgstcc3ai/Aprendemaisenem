@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="referrer" content="origin">
+
+    <title>Redação - Aprende+ ENEM</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6fb;
+            color: #17345f;
+            padding: 35px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cabecalho {
+            margin-bottom: 30px;
+        }
+
+        .voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #315eb0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .voltar:hover {
+            color: #163b7a;
+        }
+
+        .cabecalho h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #17345f;
+            margin-bottom: 8px;
+        }
+
+        .cabecalho p {
+            color: #71819d;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .card-conteudo {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 5px 20px rgba(30, 60, 100, 0.04);
+            margin-bottom: 25px;
+        }
+
+        .topo-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icone {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: #eaf0ff;
+            color: #315eb0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            flex-shrink: 0;
+        }
+
+        .topo-card h2 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .topo-card p {
+            color: #71819d;
+            font-size: 13px;
+        }
+
+        .descricao {
+            font-size: 14px;
+            color: #71819d;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .links-estudo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-estudo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f3f6ff;
+            color: #315eb0;
+            text-decoration: none;
+            padding: 14px 16px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .link-estudo:hover {
+            background: #e5ecff;
+            transform: translateY(-1px);
+        }
+
+        .videoaulas h2 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            font-size: 13px;
+            color: #71819d;
+            margin-bottom: 18px;
+        }
+
+        .item-video {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 0;
+            border-bottom: 1px solid #edf0f6;
+        }
+
+        .item-video:last-child {
+            border-bottom: none;
+        }
+
+        .info-video {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icone-video {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #fff0f0;
+            color: #df4545;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            flex-shrink: 0;
+        }
+
+        .info-video h3 {
+            font-size: 13px;
+            color: #17345f;
+            margin-bottom: 5px;
+        }
+
+        .info-video p {
+            font-size: 12px;
+            color: #71819d;
+            line-height: 1.6;
+        }
+
+        .botao {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #315eb0;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .botao:hover {
+            background: #234b94;
+        }
+
+        .dica {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 22px;
+            background: #fff7e7;
+            border: 1px solid #ffe3a3;
+            border-radius: 14px;
+        }
+
+        .dica i {
+            color: #e2a116;
+            font-size: 21px;
+            margin-top: 2px;
+        }
+
+        .dica h3 {
+            color: #17345f;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .dica p {
+            color: #806d4f;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* MODAL */
+
+        .modal-video {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(10, 25, 50, 0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-conteudo {
+            position: relative;
+            background: #ffffff;
+            width: 100%;
+            max-width: 1000px;
+            height: 80vh;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .fechar-modal {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: #ffffff;
+            color: #17345f;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .fechar-modal:hover {
+            background: #eaf0ff;
+        }
+
+        /* ÁREA DOS VÍDEOS */
+
+        .video-responsivo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-responsivo iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ÁREA DO MATERIAL DE LEITURA */
+
+        .material-leitura {
+            display: none;
+            height: 100%;
+            overflow-y: auto;
+            padding: 15px 25px 25px;
+            color: #17345f;
+        }
+
+        .material-leitura h2 {
+            font-size: 23px;
+            margin-bottom: 10px;
+            color: #17345f;
+        }
+
+        .material-leitura .introducao {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #71819d;
+            margin-bottom: 25px;
+        }
+
+        .material-leitura h3 {
+            font-size: 16px;
+            margin: 24px 0 10px;
+            color: #315eb0;
+        }
+
+        .material-leitura p {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #586b87;
+            margin-bottom: 12px;
+        }
+
+        .material-leitura ul {
+            padding-left: 22px;
+            margin-bottom: 15px;
+            color: #586b87;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .caixa-exemplo {
+            background: #f3f6ff;
+            border-left: 4px solid #315eb0;
+            padding: 18px;
+            border-radius: 9px;
+            margin: 15px 0;
+        }
+
+        .caixa-exemplo h4 {
+            font-size: 13px;
+            margin-bottom: 9px;
+            color: #315eb0;
+        }
+
+        .caixa-exemplo p {
+            margin-bottom: 5px;
+        }
+
+        .formula {
+            display: inline-block;
+            background: #eaf0ff;
+            color: #234b94;
+            padding: 9px 15px;
+            border-radius: 7px;
+            font-weight: 600;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .destaque-leitura {
+            background: #fff7e7;
+            border: 1px solid #ffe3a3;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+
+        .destaque-leitura p {
+            color: #806d4f;
+            margin: 0;
+        }
+
+        .botao-fonte {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #315eb0;
+            color: white;
+            text-decoration: none;
+            padding: 12px 17px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .botao-fonte:hover {
+            background: #234b94;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 20px 14px;
+            }
+
+            .cabecalho h1 {
+                font-size: 23px;
+            }
+
+            .card-conteudo {
+                padding: 20px;
+            }
+
+            .item-video {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .botao {
+                margin-left: 60px;
+            }
+
+            .modal-conteudo {
+                height: 85vh;
+                padding: 10px;
+            }
+
+            .material-leitura {
+                padding: 15px 10px;
+            }
+
+            .material-leitura h2 {
+                font-size: 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="cabecalho">
+
+            <a href="pagmaterias.html" class="voltar">
+                <i class="fa-solid fa-arrow-left"></i>
+                Voltar
+            </a>
+
+            <h1>Redação</h1>
+
+            <p>
+            Aprenda a fazer uma redação do zero.
+            </p>
+
+        </header>
+
+    
+
+        <section class="card-conteudo">
+
+            <div class="topo-card">
+
+                <div class="icone">
+                    <i class="fa-solid fa-percent"></i>
+                </div>
+
+                <div>
+                    <h2>Como fazer uma redação passo a passo.</h2>
+                    <p>Redação para o ENEM</p>
+                </div>
+
+            </div>
+
+            <p class="descricao">
+                Aprenda a escrever redações do zero,seguindo a estrutura do enem.
+            </p>
+
+            <div class="links-estudo">
+
+                <button class="link-estudo"
+                        onclick="abrirVideo('MeKHJVPNV30')">
+
+                    <i class="fa-brands fa-youtube"></i>
+                    Assistir videoaula
+
+                </button>
+
+                <button class="link-estudo"
+                        onclick="abrirConteudo()">
+
+                    <i class="fa-solid fa-book"></i>
+                    Acessar conteúdos e explicações sobre redação.
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- VIDEOAULAS RECOMENDADAS -->
+
+        <section class="card-conteudo videoaulas">
+
+            <h2>
+                Videoaulas recomendadas
+                <i class="fa-brands fa-youtube" style="color: #df4545;"></i>
+            </h2>
+
+            <p class="subtitulo">
+                Acesse aulas e revisões para reforçar seus conhecimentos.
+            </p>
+
+           
+
+        <!-- DICA DE ESTUDO -->
+
+        <section class="dica">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <div>
+
+                <h3>Dica para sua redação</h3>
+
+                <p>
+                    Assista à filmes,séries e leia livros. 
+                    Tenha sempre repertórios em mente.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL -->
+
+    <div class="modal-video" id="modalVideo">
+
+        <div class="modal-conteudo">
+
+            <button
+                class="fechar-modal"
+                onclick="fecharModal()"
+                aria-label="Fechar janela">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <!-- IFRAME DO YOUTUBE -->
+
+            <div class="video-responsivo" id="areaVideo">
+
+                <iframe
+                    id="iframeVideo"
+                    src=""
+                    title="Videoaula do Aprende+ ENEM"
+                    referrerpolicy="origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+       
+<!-- MATERIAL DE LEITURA -->
+
+<div class="material-leitura" id="areaConteudo">
+
+    <h2>
+        <i class="fa-solid fa-book-open"></i>
+        Redação
+    </h2>
+
+    <p class="introducao">
+        A redação é uma das partes mais importantes do ENEM.
+        Aprenda a estruturar seu texto, desenvolver argumentos,
+        utilizar repertórios socioculturais e construir uma proposta
+        de intervenção para alcançar uma excelente nota.
+    </p>
+
+    <h3>1. Como funciona a redação do ENEM?</h3>
+
+    <p>
+        A redação do ENEM exige a produção de um texto dissertativo-
+        argumentativo sobre um tema de ordem social, científica,
+        cultural ou política.
+    </p>
+
+    <p>
+        O candidato precisa apresentar um ponto de vista sobre o tema,
+        defender sua opinião com argumentos e propor uma solução
+        para o problema apresentado.
+    </p>
+
+    <div class="caixa-exemplo">
+        <h4>Estrutura básica da redação</h4>
+
+        <ul>
+            <li><strong>Introdução:</strong> apresentação do tema e da tese.</li>
+            <li><strong>Desenvolvimento 1:</strong> primeiro argumento.</li>
+            <li><strong>Desenvolvimento 2:</strong> segundo argumento.</li>
+            <li><strong>Conclusão:</strong> proposta de intervenção.</li>
+        </ul>
+    </div>
+
+    <h3>2. Como fazer uma boa introdução?</h3>
+
+    <p>
+        A introdução é o primeiro parágrafo da redação. Nela,
+        você deve contextualizar o tema e apresentar sua tese,
+        ou seja, o posicionamento que será defendido ao longo do texto.
+    </p>
+
+    <div class="caixa-exemplo">
+        <h4>Exemplo de introdução</h4>
+
+        <p>
+            A Constituição Federal de 1988 garante direitos
+            fundamentais a todos os cidadãos brasileiros.
+            Entretanto, na realidade, diversos problemas sociais
+            dificultam a concretização dessas garantias.
+            Nesse contexto, a falta de conscientização e a
+            negligência do poder público contribuem para a
+            permanência desse cenário.
+        </p>
+
+        <p>
+            Observe que o exemplo apresenta uma referência,
+            contextualiza o assunto e indica dois argumentos.
+        </p>
+    </div>
+
+    <h3>3. Como desenvolver os argumentos?</h3>
+
+    <p>
+        O desenvolvimento é a parte em que você explica e defende
+        sua tese. O ideal é utilizar dois parágrafos, cada um
+        apresentando um argumento diferente.
+    </p>
+
+    <p>
+        Para construir um bom desenvolvimento, procure:
+    </p>
+
+    <ul>
+        <li>Apresentar uma ideia principal;</li>
+        <li>Explicar o argumento com clareza;</li>
+        <li>Utilizar exemplos ou repertórios socioculturais;</li>
+        <li>Relacionar o argumento ao tema;</li>
+        <li>Demonstrar as consequências do problema.</li>
+    </ul>
+
+    <div class="caixa-exemplo">
+        <h4>Exemplo de argumento</h4>
+
+        <p>
+            Em primeiro lugar, a ausência de investimentos em
+            educação contribui para a continuidade desse problema.
+            Isso ocorre porque a falta de informação dificulta
+            a formação de cidadãos conscientes e preparados
+            para enfrentar os desafios sociais.
+        </p>
+    </div>
+
+    <h3>4. Repertórios socioculturais</h3>
+
+    <p>
+        Repertório sociocultural é uma referência externa utilizada
+        para enriquecer a argumentação. Pode ser uma obra literária,
+        um filme, uma série, um acontecimento histórico, uma lei
+        ou o pensamento de um filósofo.
+    </p>
+
+    <p><strong>Alguns repertórios que podem ser utilizados:</strong></p>
+
+    <ul>
+        <li>
+            <strong>Constituição Federal de 1988:</strong>
+            garante direitos fundamentais aos cidadãos.
+        </li>
+
+        <li>
+            <strong>Declaração Universal dos Direitos Humanos:</strong>
+            defende a dignidade e a igualdade entre as pessoas.
+        </li>
+
+        <li>
+            <strong>Émile Durkheim:</strong>
+            estudou a influência da sociedade sobre os indivíduos.
+        </li>
+
+        <li>
+            <strong>Modernidade Líquida, de Zygmunt Bauman:</strong>
+            aborda as relações sociais e as transformações
+            da sociedade contemporânea.
+        </li>
+
+        <li>
+            <strong>Constituição e cidadania:</strong>
+            podem ser utilizadas em discussões sobre direitos,
+            desigualdade e participação social.
+        </li>
+    </ul>
+
+    <div class="destaque-leitura">
+        <p>
+            <strong>Dica para o ENEM:</strong>
+            Não basta mencionar um filme, filósofo ou lei.
+            Explique a relação entre o repertório e o tema
+            da redação.
+        </p>
+    </div>
+
+    <h3>5. Conectivos para melhorar sua redação</h3>
+
+    <p>
+        Os conectivos são palavras ou expressões que ligam
+        as ideias e ajudam a organizar o texto.
+    </p>
+
+    <ul>
+        <li><strong>Introdução:</strong> Nesse contexto, Sob essa perspectiva.</li>
+        <li><strong>Adição:</strong> Além disso, Ademais.</li>
+        <li><strong>Oposição:</strong> Entretanto, Contudo, Todavia.</li>
+        <li><strong>Causa:</strong> Visto que, Uma vez que, Em razão de.</li>
+        <li><strong>Consequência:</strong> Portanto, Dessa forma, Assim.</li>
+        <li><strong>Conclusão:</strong> Diante disso, Em síntese.</li>
+    </ul>
+
+    <h3>6. Como fazer a conclusão?</h3>
+
+    <p>
+        A conclusão deve apresentar uma proposta de intervenção
+        para enfrentar o problema discutido. Essa proposta precisa
+        ser detalhada e respeitar os direitos humanos.
+    </p>
+
+    <p><strong>Os cinco elementos da proposta de intervenção:</strong></p>
+
+    <ul>
+        <li><strong>Agente:</strong> quem realizará a ação?</li>
+        <li><strong>Ação:</strong> o que será feito?</li>
+        <li><strong>Meio:</strong> como será realizado?</li>
+        <li><strong>Finalidade:</strong> qual objetivo se pretende alcançar?</li>
+        <li><strong>Detalhamento:</strong> uma informação que explique melhor um dos elementos.</li>
+    </ul>
+
+    <div class="caixa-exemplo">
+        <h4>Exemplo de proposta de intervenção</h4>
+
+        <p>
+            Portanto, o Ministério da Educação, em parceria com
+            as escolas, deve promover campanhas educativas por
+            meio de palestras e projetos pedagógicos, com o objetivo
+            de conscientizar os estudantes sobre o problema.
+            Essas ações devem ocorrer durante o ano letivo,
+            envolvendo professores e a comunidade escolar.
+        </p>
+
+        <p>
+            Nesse exemplo, é possível identificar o agente,
+            a ação, o meio, a finalidade e o detalhamento.
+        </p>
+    </div>
+
+    <h3>7. As cinco competências do ENEM</h3>
+
+    <p>
+        A redação é avaliada por cinco competências, cada uma
+        valendo até 200 pontos.
+    </p>
+
+    <ul>
+        <li>
+            <strong>Competência 1:</strong>
+            domínio da modalidade escrita formal da língua portuguesa.
+        </li>
+
+        <li>
+            <strong>Competência 2:</strong>
+            compreensão do tema e aplicação de repertório sociocultural.
+        </li>
+
+        <li>
+            <strong>Competência 3:</strong>
+            seleção e organização de argumentos.
+        </li>
+
+        <li>
+            <strong>Competência 4:</strong>
+            utilização adequada dos mecanismos linguísticos
+            de coesão.
+        </li>
+
+        <li>
+            <strong>Competência 5:</strong>
+            elaboração de uma proposta de intervenção
+            que respeite os direitos humanos.
+        </li>
+    </ul>
+
+    <div class="destaque-leitura">
+        <p>
+            <strong>Atenção:</strong>
+            Cada competência vale até 200 pontos.
+            A soma das cinco competências pode chegar a
+            1.000 pontos.
+        </p>
+    </div>
+
+    <h3>8. O que evitar na redação?</h3>
+
+    <ul>
+        <li>Fugir do tema proposto;</li>
+        <li>Escrever em primeira pessoa de maneira inadequada;</li>
+        <li>Utilizar linguagem informal;</li>
+        <li>Repetir muitas palavras e ideias;</li>
+        <li>Apresentar argumentos sem explicação;</li>
+        <li>Utilizar repertórios sem relacioná-los ao tema;</li>
+        <li>Esquecer a proposta de intervenção;</li>
+        <li>Desrespeitar os direitos humanos.</li>
+    </ul>
+
+    <h3>9. Pratique seus conhecimentos</h3>
+
+    <div class="caixa-exemplo">
+
+        <h4>Questão 1</h4>
+
+        <p>
+            Qual é a principal finalidade da introdução
+            na redação do ENEM?
+        </p>
+
+        <p>
+            a) Apresentar apenas uma solução para o problema.<br>
+            b) Introduzir o tema e apresentar a tese.<br>
+            c) Repetir o título da redação.<br>
+            d) Apresentar somente citações.
+        </p>
+
+        <details>
+            <summary style="cursor:pointer; color:#315eb0; font-size:13px; font-weight:600;">
+                Ver resposta
+            </summary>
+
+            <p style="margin-top:10px;">
+                <strong>Alternativa B.</strong>
+                A introdução apresenta o tema e o posicionamento
+                que será defendido no texto.
+            </p>
+        </details>
+
+    </div>
+
+    <div class="caixa-exemplo">
+
+        <h4>Questão 2</h4>
+
+        <p>
+            Qual das alternativas apresenta um conectivo
+            adequado para iniciar uma conclusão?
+        </p>
+
+        <p>
+            a) Entretanto.<br>
+            b) Além disso.<br>
+            c) Diante disso.<br>
+            d) Por outro lado.
+        </p>
+
+        <details>
+            <summary style="cursor:pointer; color:#315eb0; font-size:13px; font-weight:600;">
+                Ver resposta
+            </summary>
+
+            <p style="margin-top:10px;">
+                <strong>Alternativa C.</strong>
+                "Diante disso" é uma expressão que pode ser
+                utilizada para introduzir a conclusão.
+            </p>
+        </details>
+
+    </div>
+
+    <div class="caixa-exemplo">
+
+        <h4>Questão 3</h4>
+
+        <p>
+            Qual dos elementos abaixo faz parte da proposta
+            de intervenção exigida na redação do ENEM?
+        </p>
+
+        <p>
+            a) Personagem.<br>
+            b) Narrador.<br>
+            c) Agente.<br>
+            d) Clímax.
+        </p>
+
+        <details>
+            <summary style="cursor:pointer; color:#315eb0; font-size:13px; font-weight:600;">
+                Ver resposta
+            </summary>
+
+            <p style="margin-top:10px;">
+                <strong>Alternativa C.</strong>
+                O agente é quem será responsável por realizar
+                a ação proposta para solucionar ou minimizar
+                o problema.
+            </p>
+        </details>
+
+    </div>
+
+    <h3>10. Resumo final</h3>
+
+    <p>
+        Para construir uma boa redação no ENEM, lembre-se
+        de organizar seu texto em quatro partes:
+    </p>
+
+    <ul>
+        <li><strong>Introdução:</strong> tema e tese.</li>
+        <li><strong>Desenvolvimento 1:</strong> primeiro argumento.</li>
+        <li><strong>Desenvolvimento 2:</strong> segundo argumento.</li>
+        <li><strong>Conclusão:</strong> proposta de intervenção.</li>
+    </ul>
+
+    <p>
+        <strong>Palavras-chave para memorizar:</strong>
+        tese, argumentação, repertório sociocultural,
+        conectivos, competências e proposta de intervenção.
+    </p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const modal = document.getElementById("modalVideo");
+        const iframe = document.getElementById("iframeVideo");
+
+        const areaVideo = document.getElementById("areaVideo");
+        const areaConteudo = document.getElementById("areaConteudo");
+
+        // ABRIR VÍDEO DO YOUTUBE
+
+        function abrirVideo(idVideo) {
+
+            areaVideo.style.display = "block";
+            areaConteudo.style.display = "none";
+
+            const origem = window.location.origin;
+
+            iframe.src =
+                "https://www.youtube.com/embed/" +
+                idVideo +
+                "?autoplay=1&enablejsapi=1&origin=" +
+                encodeURIComponent(origem);
+
+            modal.style.display = "flex";
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+        // ABRIR MATERIAL DE LEITURA
+
+        function abrirConteudo() {
+
+            iframe.src = "";
+
+            areaVideo.style.display = "none";
+            areaConteudo.style.display = "block";
+
+            modal.style.display = "flex";
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+        // FECHAR MODAL
+
+        function fecharModal() {
+
+            modal.style.display = "none";
+
+            iframe.src = "";
+
+            areaVideo.style.display = "block";
+            areaConteudo.style.display = "none";
+
+            document.body.style.overflow = "";
+
+        }
+
+        // FECHAR AO CLICAR FORA DO MODAL
+
+        modal.addEventListener("click", function(event) {
+
+            if (event.target === modal) {
+
+                fecharModal();
+
+            }
+
+        });
+
+        // FECHAR AO PRESSIONAR ESC
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape" &&
+                modal.style.display === "flex") {
+
+                fecharModal();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

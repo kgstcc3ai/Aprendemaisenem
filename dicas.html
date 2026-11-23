@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dicas de Escrita - Aprende+ ENEM</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6fb;
+    color: #1d3557;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+.sidebar {
+    width: 225px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1d3c78, #345ca5);
+    color: white;
+    padding: 25px 18px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 48px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #80b7ff;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 13px 15px;
+    margin-bottom: 9px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.menu a:hover,
+.menu a.ativo {
+    background: rgba(255,255,255,0.18);
+}
+
+.voltar {
+    margin-top: auto;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.15);
+    padding: 12px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* CONTEÚDO */
+main {
+    margin-left: 225px;
+    width: calc(100% - 225px);
+    padding: 38px 36px;
+}
+
+.cabecalho {
+    margin-bottom: 25px;
+}
+
+.cabecalho h1 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.cabecalho p {
+    font-size: 13px;
+    color: #71829d;
+}
+
+/* DESTAQUE */
+.destaque {
+    background: linear-gradient(110deg, #203f7c, #365eaa);
+    color: white;
+    padding: 26px 28px;
+    border-radius: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 20px rgba(29,60,120,0.12);
+}
+
+.destaque h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.destaque p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* SEÇÕES */
+.titulo-secao {
+    font-size: 19px;
+    margin-bottom: 16px;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 23px;
+    box-shadow: 0 7px 20px rgba(0,0,0,0.06);
+    min-height: 210px;
+}
+
+.numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: #edf4ff;
+    color: #315ba5;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #71829d;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.card ul {
+    padding-left: 18px;
+    color: #71829d;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* EXEMPLOS */
+.exemplo {
+    background: #edf4ff;
+    padding: 13px;
+    border-radius: 9px;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #315ba5;
+}
+
+.exemplo strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* DICA FINAL */
+.dica {
+    margin-top: 24px;
+    background: #eaf1fc;
+    border-left: 5px solid #315ba5;
+    padding: 20px 22px;
+    border-radius: 10px;
+}
+
+.dica h3 {
+    font-size: 16px;
+    color: #23477f;
+    margin-bottom: 7px;
+}
+
+.dica p {
+    font-size: 13px;
+    color: #536984;
+    line-height: 1.8;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 800px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    main {
+        margin-left: 180px;
+        width: calc(100% - 180px);
+        padding: 25px 20px;
+    }
+
+    .grade {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .menu a {
+        margin: 0;
+        padding: 9px 11px;
+    }
+
+    .voltar {
+        margin-top: 15px;
+    }
+
+    main {
+        margin-left: 0;
+        width: 100%;
+        padding: 25px 18px;
+    }
+
+    .cabecalho h1 {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU LATERAL -->
+<aside class="sidebar">
+
+    <div class="logo">
+        Aprende+ <span>ENEM</span>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="materias.html">Matérias</a>
+        <a href="simulados.html">Simulados</a>
+        <a href="cronograma.html">Cronograma</a>
+        <a href="pagredaçao.html" class="ativo">Redação</a>
+    </nav>
+
+    <a href="pagredaçao.html" class="voltar">Voltar</a>
+
+</aside>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main>
+
+    <header class="cabecalho">
+        <h1>Dicas de Escrita ✍️</h1>
+        <p>Aprenda a escrever melhor e construir uma redação mais clara, organizada e argumentativa.</p>
+    </header>
+
+    <section class="destaque">
+        <h2>Como melhorar sua escrita para o ENEM?</h2>
+
+        <p>
+            Uma boa redação não depende apenas de palavras difíceis.
+            É importante organizar os pensamentos, apresentar argumentos
+            consistentes, utilizar conectivos adequadamente e escrever
+            de maneira clara. Com prática e atenção aos detalhes,
+            você pode desenvolver uma escrita cada vez melhor.
+        </p>
+    </section>
+
+    <h2 class="titulo-secao">10 dicas para escrever melhor</h2>
+
+    <section class="grade">
+
+        <!-- DICA 1 -->
+        <article class="card">
+            <div class="numero">1</div>
+            <h3>Organize suas ideias antes de escrever</h3>
+
+            <p>
+                Antes de começar a redação, pense no tema e defina
+                quais argumentos serão utilizados.
+            </p>
+
+            <ul>
+                <li>Identifique o problema apresentado.</li>
+                <li>Defina seu ponto de vista.</li>
+                <li>Escolha dois argumentos.</li>
+                <li>Planeje a conclusão.</li>
+            </ul>
+        </article>
+
+        <!-- DICA 2 -->
+        <article class="card">
+            <div class="numero">2</div>
+            <h3>Evite repetir palavras</h3>
+
+            <p>
+                A repetição excessiva deixa o texto cansativo.
+                Procure variar o vocabulário sem prejudicar o sentido.
+            </p>
+
+            <div class="exemplo">
+                <strong>Exemplo:</strong>
+                Em vez de repetir "problema", utilize expressões como
+                "questão", "desafio" ou "situação".
+            </div>
+        </article>
+
+        <!-- DICA 3 -->
+        <article class="card">
+            <div class="numero">3</div>
+            <h3>Utilize conectivos</h3>
+
+            <p>
+                Os conectivos ligam as ideias e ajudam a construir
+                uma sequência lógica entre as frases e os parágrafos.
+            </p>
+
+            <ul>
+                <li>Adição: além disso, também.</li>
+                <li>Oposição: entretanto, porém.</li>
+                <li>Causa: porque, visto que.</li>
+                <li>Conclusão: portanto, assim.</li>
+            </ul>
+        </article>
+
+        <!-- DICA 4 -->
+        <article class="card">
+            <div class="numero">4</div>
+            <h3>Escreva períodos claros</h3>
+
+            <p>
+                Evite construir frases muito longas, com muitas ideias
+                diferentes. Prefira períodos organizados e objetivos.
+            </p>
+
+            <div class="exemplo">
+                <strong>Dica:</strong>
+                Cada frase deve transmitir uma ideia compreensível
+                e contribuir para o desenvolvimento do argumento.
+            </div>
+        </article>
+
+        <!-- DICA 5 -->
+        <article class="card">
+            <div class="numero">5</div>
+            <h3>Defenda seu ponto de vista</h3>
+
+            <p>
+                Não basta apresentar uma opinião. É necessário explicar
+                por que você pensa daquela maneira.
+            </p>
+
+            <ul>
+                <li>Apresente seu argumento.</li>
+                <li>Explique a ideia.</li>
+                <li>Utilize exemplos ou dados.</li>
+                <li>Relacione tudo ao tema.</li>
+            </ul>
+        </article>
+
+        <!-- DICA 6 -->
+        <article class="card">
+            <div class="numero">6</div>
+            <h3>Evite a linguagem informal</h3>
+
+            <p>
+                Na redação do ENEM, utilize a linguagem formal,
+                evitando expressões comuns em conversas do dia a dia.
+            </p>
+
+            <div class="exemplo">
+                <strong>Evite:</strong>
+                "A gente precisa resolver isso."
+
+                <strong>Prefira:</strong>
+                "É necessário solucionar essa questão."
+            </div>
+        </article>
+
+        <!-- DICA 7 -->
+        <article class="card">
+            <div class="numero">7</div>
+            <h3>Use repertórios de forma adequada</h3>
+
+            <p>
+                Filmes, livros, fatos históricos, filósofos e dados
+                podem enriquecer sua argumentação.
+            </p>
+
+            <ul>
+                <li>Escolha repertórios relacionados ao tema.</li>
+                <li>Explique o que eles representam.</li>
+                <li>Conecte-os ao seu argumento.</li>
+            </ul>
+        </article>
+
+        <!-- DICA 8 -->
+        <article class="card">
+            <div class="numero">8</div>
+            <h3>Cuide da pontuação</h3>
+
+            <p>
+                A pontuação ajuda a organizar as ideias e facilita
+                a compreensão do texto.
+            </p>
+
+            <ul>
+                <li>Utilize vírgulas corretamente.</li>
+                <li>Finalize as ideias com ponto final.</li>
+                <li>Evite frases sem pausas adequadas.</li>
+            </ul>
+        </article>
+
+        <!-- DICA 9 -->
+        <article class="card">
+            <div class="numero">9</div>
+            <h3>Revise antes de finalizar</h3>
+
+            <p>
+                A revisão permite identificar erros que podem
+                comprometer a qualidade da redação.
+            </p>
+
+            <ul>
+                <li>Confira a ortografia.</li>
+                <li>Observe a concordância.</li>
+                <li>Verifique a repetição de palavras.</li>
+                <li>Confira se respondeu ao tema.</li>
+            </ul>
+        </article>
+
+        <!-- DICA 10 -->
+        <article class="card">
+            <div class="numero">10</div>
+            <h3>Pratique constantemente</h3>
+
+            <p>
+                A escrita melhora com o exercício. Quanto mais você
+                escreve, mais facilidade desenvolve para organizar
+                suas ideias.
+            </p>
+
+            <ul>
+                <li>Leia redações nota 1000.</li>
+                <li>Treine diferentes temas.</li>
+                <li>Reescreva textos corrigidos.</li>
+                <li>Aprenda com seus erros.</li>
+            </ul>
+        </article>
+
+    </section>
+
+    <!-- DICA FINAL -->
+    <section class="dica">
+        <h3>💡 Lembre-se!</h3>
+
+        <p>
+            Escrever bem não significa utilizar palavras complicadas.
+            O mais importante é transmitir suas ideias com clareza,
+            coerência e organização. Para melhorar sua nota no ENEM,
+            pratique a escrita e procure aplicar essas dicas em todas
+            as suas redações.
+        </p>
+    </section>
+
+</main>
+
+</body>
+</html>

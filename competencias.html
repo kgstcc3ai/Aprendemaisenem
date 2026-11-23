@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competências da Redação - Aprende+ ENEM</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6fb;
+    color: #1d3557;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+.sidebar {
+    width: 225px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1d3c78, #345ca5);
+    color: white;
+    padding: 25px 18px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 48px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #80b7ff;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 13px 15px;
+    margin-bottom: 9px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.menu a:hover,
+.menu a.ativo {
+    background: rgba(255,255,255,0.18);
+}
+
+.voltar {
+    margin-top: auto;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.15);
+    padding: 12px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.voltar:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    margin-left: 225px;
+    width: calc(100% - 225px);
+    padding: 38px 36px;
+}
+
+.cabecalho {
+    margin-bottom: 25px;
+}
+
+.cabecalho h1 {
+    font-size: 26px;
+    color: #1d3557;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.cabecalho p {
+    font-size: 13px;
+    color: #71829d;
+}
+
+/* DESTAQUE */
+.destaque {
+    background: linear-gradient(110deg, #203f7c, #365eaa);
+    color: white;
+    padding: 26px 28px;
+    border-radius: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 20px rgba(29,60,120,0.12);
+}
+
+.destaque h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.destaque p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* TÍTULOS */
+.titulo-secao {
+    font-size: 19px;
+    margin-bottom: 16px;
+    color: #1d3557;
+}
+
+/* CARTÕES */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 23px;
+    box-shadow: 0 7px 20px rgba(0,0,0,0.06);
+    min-height: 225px;
+}
+
+.numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: #edf4ff;
+    color: #315ba5;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #1d3557;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #71829d;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.card ul {
+    padding-left: 18px;
+    color: #71829d;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.card strong {
+    color: #315ba5;
+}
+
+/* DICA */
+.dica {
+    margin-top: 24px;
+    background: #eaf1fc;
+    border-left: 5px solid #315ba5;
+    padding: 20px 22px;
+    border-radius: 10px;
+}
+
+.dica h3 {
+    font-size: 16px;
+    color: #23477f;
+    margin-bottom: 7px;
+}
+
+.dica p {
+    font-size: 13px;
+    color: #536984;
+    line-height: 1.8;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 800px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    main {
+        margin-left: 180px;
+        width: calc(100% - 180px);
+        padding: 25px 20px;
+    }
+
+    .grade {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .menu a {
+        margin: 0;
+        padding: 9px 11px;
+    }
+
+    .voltar {
+        margin-top: 15px;
+    }
+
+    main {
+        margin-left: 0;
+        width: 100%;
+        padding: 25px 18px;
+    }
+
+    .cabecalho h1 {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU LATERAL -->
+<aside class="sidebar">
+
+    <div class="logo">
+        Aprende+ <span>ENEM</span>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="materias.html">Matérias</a>
+        <a href="simulados.html">Simulados</a>
+        <a href="cronograma.html">Cronograma</a>
+        <a href="pagredaçao.html" class="ativo">Redação</a>
+    </nav>
+
+    <a href="pagredaçao.html" class="voltar">Voltar</a>
+
+</aside>
+
+<!-- CONTEÚDO -->
+<main>
+
+    <header class="cabecalho">
+        <h1>Competências da Redação 📝</h1>
+        <p>Conheça os cinco critérios utilizados para avaliar a redação do ENEM.</p>
+    </header>
+
+    <section class="destaque">
+        <h2>Como funciona a avaliação da redação do ENEM?</h2>
+
+        <p>
+            A redação do ENEM é avaliada por meio de cinco competências.
+            Cada uma vale até 200 pontos, totalizando 1.000 pontos.
+            Para alcançar uma boa nota, é importante compreender o que cada
+            competência exige e desenvolver essas habilidades durante a escrita.
+        </p>
+    </section>
+
+    <h2 class="titulo-secao">As 5 competências avaliadas</h2>
+
+    <section class="grade">
+
+        <!-- COMPETÊNCIA 1 -->
+        <article class="card">
+            <div class="numero">1</div>
+
+            <h3>Domínio da escrita formal</h3>
+
+            <p>
+                Avalia se o estudante utiliza corretamente a língua portuguesa
+                escrita, respeitando as regras gramaticais e a norma-padrão.
+            </p>
+
+            <ul>
+                <li>Ortografia correta</li>
+                <li>Uso adequado da pontuação</li>
+                <li>Concordância verbal e nominal</li>
+                <li>Construção correta das frases</li>
+            </ul>
+        </article>
+
+        <!-- COMPETÊNCIA 2 -->
+        <article class="card">
+            <div class="numero">2</div>
+
+            <h3>Compreensão do tema e repertório</h3>
+
+            <p>
+                Avalia se o estudante compreendeu a proposta da redação e
+                desenvolveu o tema dentro do modelo dissertativo-argumentativo.
+            </p>
+
+            <ul>
+                <li>Compreensão completa do tema</li>
+                <li>Apresentação de uma tese</li>
+                <li>Uso de repertório sociocultural</li>
+                <li>Não fugir do assunto proposto</li>
+            </ul>
+        </article>
+
+        <!-- COMPETÊNCIA 3 -->
+        <article class="card">
+            <div class="numero">3</div>
+
+            <h3>Organização dos argumentos</h3>
+
+            <p>
+                Avalia a capacidade de selecionar, organizar e interpretar
+                informações e argumentos para defender um ponto de vista.
+            </p>
+
+            <ul>
+                <li>Argumentos bem desenvolvidos</li>
+                <li>Organização das ideias</li>
+                <li>Explicação dos argumentos</li>
+                <li>Defesa clara da tese apresentada</li>
+            </ul>
+        </article>
+
+        <!-- COMPETÊNCIA 4 -->
+        <article class="card">
+            <div class="numero">4</div>
+
+            <h3>Uso dos mecanismos linguísticos</h3>
+
+            <p>
+                Avalia se o estudante consegue conectar as ideias e as partes
+                do texto de maneira clara, lógica e organizada.
+            </p>
+
+            <ul>
+                <li>Uso de conectivos</li>
+                <li>Ligação entre os parágrafos</li>
+                <li>Coesão textual</li>
+                <li>Evitar repetições desnecessárias</li>
+            </ul>
+        </article>
+
+        <!-- COMPETÊNCIA 5 -->
+        <article class="card">
+            <div class="numero">5</div>
+
+            <h3>Proposta de intervenção</h3>
+
+            <p>
+                Avalia a capacidade de apresentar uma solução para o problema
+                discutido, respeitando os direitos humanos.
+            </p>
+
+            <ul>
+                <li><strong>Agente:</strong> quem realizará a ação</li>
+                <li><strong>Ação:</strong> o que será feito</li>
+                <li><strong>Meio:</strong> como será realizado</li>
+                <li><strong>Finalidade:</strong> qual o objetivo</li>
+                <li><strong>Detalhamento:</strong> informação adicional</li>
+            </ul>
+        </article>
+
+    </section>
+
+    <!-- DICA DE ESTUDO -->
+    <section class="dica">
+        <h3>💡 Dica para o ENEM</h3>
+
+        <p>
+            Cada competência vale até 200 pontos. Por isso, não basta escrever
+            um texto bonito: é necessário atender aos critérios de avaliação.
+            Treine a escrita, revise seus erros e procure desenvolver todas
+            as cinco competências em cada redação.
+        </p>
+    </section>
+
+</main>
+
+</body>
+</html>

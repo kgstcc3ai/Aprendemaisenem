@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Aprende+ ENEM</title>
+
+    <!-- Fonte Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/a2e0e6ad65.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fb, #e8eef9);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1050px;
+            min-height: 600px;
+            display: flex;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Lado esquerdo */
+        .info {
+            width: 45%;
+            background: linear-gradient(135deg, #163b7a, #315eb0);
+            color: white;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .logo span {
+            color: #7eb3ff;
+        }
+
+        .info h1 {
+            font-size: 32px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .info h1 span {
+            color: #7eb3ff;
+        }
+
+        .info p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #dce7ff;
+            margin-bottom: 35px;
+        }
+
+        .beneficios {
+            list-style: none;
+        }
+
+        .beneficios li {
+            margin-bottom: 18px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .beneficios i {
+            color: #7eb3ff;
+            font-size: 18px;
+        }
+
+        /* Lado direito */
+        .login-area {
+            width: 55%;
+            background: white;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-area h2 {
+            font-size: 32px;
+            color: #26364f;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            color: #6c7a92;
+            margin-bottom: 35px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .input-group {
+            margin-bottom: 22px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #26364f;
+            font-weight: 500;
+        }
+
+        .campo {
+            position: relative;
+        }
+
+        .campo i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #5272a8;
+        }
+
+        .campo input {
+            width: 100%;
+            padding: 15px 15px 15px 50px;
+            border: 1px solid #d5dce8;
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+        }
+
+        .campo input:focus {
+            border-color: #4771c7;
+            box-shadow: 0 0 0 4px rgba(71, 113, 199, 0.12);
+        }
+
+        /* Botão entrar */
+        .botao-entrar {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #4771c7, #244d9c);
+            color: white;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .botao-entrar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(36, 77, 156, 0.3);
+        }
+
+        /* Cadastro */
+        .cadastro {
+            margin-top: 22px;
+            text-align: center;
+            color: #6c7a92;
+            font-size: 14px;
+        }
+
+        .cadastro a {
+            color: #315eb0;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        .cadastro a:hover {
+            text-decoration: underline;
+        }
+
+       
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h2 {
+            color: #26364f;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            color: #6c7a92;
+            margin-bottom: 20px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d5dce8;
+            border-radius: 10px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-content button {
+            margin-top: 15px;
+        }
+
+        .fechar {
+            background: #718096;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                max-width: 500px;
+            }
+
+            .info,
+            .login-area {
+                width: 100%;
+            }
+
+            .info {
+                padding: 40px;
+            }
+
+            .login-area {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 15px;
+            }
+
+            .info,
+            .login-area {
+                padding: 30px 25px;
+            }
+
+            .info h1,
+            .login-area h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        
+        <section class="info">
+
+            <div class="logo">
+                Aprende+ <span>ENEM</span>
+            </div>
+
+            <h1>
+                Seu futuro começa com o
+                <span>aprendizado</span> de hoje.
+            </h1>
+
+            <p>
+                Uma plataforma desenvolvida para ajudar você a organizar
+                seus estudos e se preparar para o ENEM.
+            </p>
+
+            <ul class="beneficios">
+                <li>
+                    <i class="fas fa-book"></i>
+                    Conteúdos organizados
+                </li>
+
+                <li>
+                    <i class="fas fa-file-alt"></i>
+                    Simulados para praticar
+                </li>
+
+                <li>
+                    <i class="fas fa-chart-line"></i>
+                    Acompanhe sua evolução
+                </li>
+
+                <li>
+                    <i class="fas fa-calendar-alt"></i>
+                    Organize seus estudos
+                </li>
+            </ul>
+
+        </section>
+
+        <section class="login-area">
+
+            <h2>Bem-vindo de volta!</h2>
+
+            <p class="subtitulo">
+                Entre com sua conta para continuar.
+            </p>
+
+            <form id="formLogin">
+
+                <div class="input-group">
+                    <label for="emailLogin">E-mail</label>
+
+                    <div class="campo">
+                        <i class="fas fa-user"></i>
+
+                        <input
+                            type="email"
+                            id="emailLogin"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            autocomplete="email"
+                            required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+
+                    <div class="campo">
+                        <i class="fas fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            autocomplete="current-password"
+                            required>
+                    </div>
+                </div>
+
+            
+
+                <!-- Botão entrar -->
+                <button type="submit" class="botao-entrar">
+                    Entrar
+                </button>
+
+            </form>
+
+            <!-- Link para cadastro -->
+            <div class="cadastro">
+                Não tem uma conta?
+                <a href="pagcadastro.html">Cadastre-se</a>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- MODAL DE RECUPERAÇÃO -->
+    <div class="modal" id="modal">
+
+        <div class="modal-content">
+
+            <h2>Recuperar senha</h2>
+
+            <p>Digite seu e-mail para recuperação.</p>
+
+            <input
+                type="email"
+                id="emailRecuperacao"
+                placeholder="Seu e-mail">
+
+            <button
+                type="button"
+                class="botao-entrar"
+                onclick="recuperarSenha()">
+                Enviar
+            </button>
+
+            <button
+                type="button"
+                class="botao-entrar fechar"
+                onclick="fecharModal()">
+                Fechar
+            </button>
+
+        </div>
+
+    </div>
+
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const formulario = document.getElementById("formLogin");
+
+    if (!formulario) {
+        console.error("Formulário formLogin não encontrado.");
+        return;
+    }
+
+    formulario.addEventListener("submit", async function (evento) {
+        evento.preventDefault();
+
+        const email = document.getElementById("emailLogin").value.trim();
+        const senha = document.getElementById("senha").value;
+        const botao = formulario.querySelector('button[type="submit"]');
+
+        if (!email || !senha) {
+            alert("Preencha o e-mail e a senha.");
+            return;
+        }
+
+        botao.disabled = true;
+        botao.textContent = "Entrando...";
+
+        try {
+           
+            const resposta = await fetch("Login.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    senha: senha
+                })
+            });
+
+            
+            const textoResposta = await resposta.text();
+
+            console.log("Status HTTP:", resposta.status);
+            console.log("Resposta do PHP:", textoResposta);
+
+            let resultado;
+
+            try {
+                resultado = JSON.parse(textoResposta);
+            } catch (erro) {
+                alert(
+                    "O PHP retornou uma resposta inválida.\n" +
+                    "Código HTTP: " + resposta.status +
+                    "\nConfira a resposta no Console (F12)."
+                );
+                return;
+            }
+
+            if (resposta.ok && resultado.sucesso) {
+                alert("Login realizado com sucesso!");
+
+                window.location.href =
+                    resultado.redirecionar || "paginicial.html";
+            } else {
+                alert(
+                    resultado.mensagem ||
+                    "Não foi possível realizar o login."
+                );
+            }
+
+        } catch (erro) {
+            console.error("Erro na requisição:", erro);
+
+            alert(
+                "Não foi possível acessar login.php. " +
+                "Verifique o caminho e o servidor."
+            );
+
+        } finally {
+            botao.disabled = false;
+            botao.textContent = "Entrar";
+        }
+    });
+});
+</script>
+
+</body>
+</html>

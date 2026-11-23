@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="referrer" content="origin">
+
+    <title>Linguagens - Aprende+ ENEM</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6fb;
+            color: #17345f;
+            padding: 35px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cabecalho {
+            margin-bottom: 30px;
+        }
+
+        .voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #315eb0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .voltar:hover {
+            color: #163b7a;
+        }
+
+        .cabecalho h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #17345f;
+            margin-bottom: 8px;
+        }
+
+        .cabecalho p {
+            color: #71819d;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .card-conteudo {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 5px 20px rgba(30, 60, 100, 0.04);
+            margin-bottom: 25px;
+        }
+
+        .topo-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icone {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: #eaf0ff;
+            color: #315eb0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            flex-shrink: 0;
+        }
+
+        .topo-card h2 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .topo-card p {
+            color: #71819d;
+            font-size: 13px;
+        }
+
+        .descricao {
+            font-size: 14px;
+            color: #71819d;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .links-estudo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-estudo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f3f6ff;
+            color: #315eb0;
+            text-decoration: none;
+            padding: 14px 16px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .link-estudo:hover {
+            background: #e5ecff;
+            transform: translateY(-1px);
+        }
+
+        .videoaulas h2 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            font-size: 13px;
+            color: #71819d;
+            margin-bottom: 18px;
+        }
+
+        .item-video {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 0;
+            border-bottom: 1px solid #edf0f6;
+        }
+
+        .item-video:last-child {
+            border-bottom: none;
+        }
+
+        .info-video {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icone-video {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #fff0f0;
+            color: #df4545;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            flex-shrink: 0;
+        }
+
+        .info-video h3 {
+            font-size: 13px;
+            color: #17345f;
+            margin-bottom: 5px;
+        }
+
+        .info-video p {
+            font-size: 12px;
+            color: #71819d;
+            line-height: 1.6;
+        }
+
+        .botao {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #315eb0;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .botao:hover {
+            background: #234b94;
+        }
+
+        .dica {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 22px;
+            background: #fff7e7;
+            border: 1px solid #ffe3a3;
+            border-radius: 14px;
+        }
+
+        .dica i {
+            color: #e2a116;
+            font-size: 21px;
+            margin-top: 2px;
+        }
+
+        .dica h3 {
+            color: #17345f;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .dica p {
+            color: #806d4f;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* MODAL */
+
+        .modal-video {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(10, 25, 50, 0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-conteudo {
+            position: relative;
+            background: #ffffff;
+            width: 100%;
+            max-width: 1000px;
+            height: 80vh;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .fechar-modal {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: #ffffff;
+            color: #17345f;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .fechar-modal:hover {
+            background: #eaf0ff;
+        }
+
+        /* ÁREA DOS VÍDEOS */
+
+        .video-responsivo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-responsivo iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ÁREA DO MATERIAL DE LEITURA */
+
+        .material-leitura {
+            display: none;
+            height: 100%;
+            overflow-y: auto;
+            padding: 15px 25px 25px;
+            color: #17345f;
+        }
+
+        .material-leitura h2 {
+            font-size: 23px;
+            margin-bottom: 10px;
+            color: #17345f;
+        }
+
+        .material-leitura .introducao {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #71819d;
+            margin-bottom: 25px;
+        }
+
+        .material-leitura h3 {
+            font-size: 16px;
+            margin: 24px 0 10px;
+            color: #315eb0;
+        }
+
+        .material-leitura p {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #586b87;
+            margin-bottom: 12px;
+        }
+
+        .material-leitura ul {
+            padding-left: 22px;
+            margin-bottom: 15px;
+            color: #586b87;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .caixa-exemplo {
+            background: #f3f6ff;
+            border-left: 4px solid #315eb0;
+            padding: 18px;
+            border-radius: 9px;
+            margin: 15px 0;
+        }
+
+        .caixa-exemplo h4 {
+            font-size: 13px;
+            margin-bottom: 9px;
+            color: #315eb0;
+        }
+
+        .caixa-exemplo p {
+            margin-bottom: 5px;
+        }
+
+        .formula {
+            display: inline-block;
+            background: #eaf0ff;
+            color: #234b94;
+            padding: 9px 15px;
+            border-radius: 7px;
+            font-weight: 600;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .destaque-leitura {
+            background: #fff7e7;
+            border: 1px solid #ffe3a3;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+
+        .destaque-leitura p {
+            color: #806d4f;
+            margin: 0;
+        }
+
+        .botao-fonte {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #315eb0;
+            color: white;
+            text-decoration: none;
+            padding: 12px 17px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .botao-fonte:hover {
+            background: #234b94;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 20px 14px;
+            }
+
+            .cabecalho h1 {
+                font-size: 23px;
+            }
+
+            .card-conteudo {
+                padding: 20px;
+            }
+
+            .item-video {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .botao {
+                margin-left: 60px;
+            }
+
+            .modal-conteudo {
+                height: 85vh;
+                padding: 10px;
+            }
+
+            .material-leitura {
+                padding: 15px 10px;
+            }
+
+            .material-leitura h2 {
+                font-size: 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="cabecalho">
+
+            <a href="pagmaterias.html" class="voltar">
+                <i class="fa-solid fa-arrow-left"></i>
+                Voltar
+            </a>
+
+            <h1>Linguagens</h1>
+
+            <p>
+                Estude os principais conteúdos de português e 
+                domine a interpretação de texto.
+            </p>
+
+        </header>
+
+
+        <section class="card-conteudo">
+
+            <div class="topo-card">
+
+                <div class="icone">
+                    <i class="fa-solid fa-percent"></i>
+                </div>
+
+                <div>
+                    <h2>interpretação textual</h2>
+                    <p>interpretação textual para o ENEM</p>
+                </div>
+
+            </div>
+
+            <p class="descricao">
+                Aprenda a interpretar textos, dominar a língua padrão e 
+                ficar por dentro de tudo da gramática.
+            </p>
+
+            <div class="links-estudo">
+
+                <button class="link-estudo"
+                        onclick="abrirVideo('y73i2mvW0JU')">
+
+                    <i class="fa-brands fa-youtube"></i>
+                    Assistir videoaula
+
+                </button>
+
+                <button class="link-estudo"
+                        onclick="abrirConteudo()">
+
+                    <i class="fa-solid fa-book"></i>
+                    Acessar conteúdos e explicações sobre linguagens.
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- VIDEOAULAS RECOMENDADAS -->
+
+        <section class="card-conteudo videoaulas">
+
+            <h2>
+                Videoaulas recomendadas
+                <i class="fa-brands fa-youtube" style="color: #df4545;"></i>
+            </h2>
+
+            <p class="subtitulo">
+                Acesse aulas e revisões para reforçar seus conhecimentos.
+            </p>
+
+
+            <div class="item-video">
+
+                <div class="info-video">
+
+                    <div class="icone-video">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+
+                    <div>
+                        <h3>Revisão de linguagens para o ENEM</h3>
+
+                        <p>
+                            Revise conceitos e pratique questões de
+                            linguagens importantes para a prova.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao"
+                        onclick="abrirVideo('2KOeuUxGeNU')">
+
+                    <i class="fa-brands fa-youtube"></i>
+                    Assistir aula
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- DICA DE ESTUDO -->
+
+        <section class="dica">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <div>
+
+                <h3>Dica para estudar Matemática</h3>
+
+                <p>
+                    Assista à aula, anote as fórmulas importantes e resolva
+                    questões sobre o assunto. Ao errar uma questão, procure
+                    entender o raciocínio antes de tentar novamente.
+                    A prática ajuda a consolidar o aprendizado.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL -->
+
+    <div class="modal-video" id="modalVideo">
+
+        <div class="modal-conteudo">
+
+            <button
+                class="fechar-modal"
+                onclick="fecharModal()"
+                aria-label="Fechar janela">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <!-- IFRAME DO YOUTUBE -->
+
+            <div class="video-responsivo" id="areaVideo">
+
+                <iframe
+                    id="iframeVideo"
+                    src=""
+                    title="Videoaula do Aprende+ ENEM"
+                    referrerpolicy="origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+           
+<!-- MATERIAL DE LEITURA -->
+
+<div class="material-leitura" id="areaConteudo">
+
+    <h2>
+        <i class="fa-solid fa-book-open"></i>
+        Interpretação de Texto e Linguagens
+    </h2>
+
+    <p class="introducao">
+        A área de Linguagens do ENEM avalia a capacidade de compreender,
+        interpretar e analisar diferentes formas de comunicação.
+        A prova apresenta textos, imagens, charges, tirinhas, músicas,
+        propagandas e obras literárias. Por isso, desenvolver a leitura
+        e reconhecer os sentidos das mensagens é fundamental.
+    </p>
+
+    <h3>1. O que é interpretação de texto?</h3>
+
+    <p>
+        Interpretar um texto significa compreender as informações
+        apresentadas e identificar as ideias que estão explícitas
+        ou implícitas. Também é importante reconhecer a intenção
+        do autor e o contexto em que a mensagem foi produzida.
+    </p>
+
+    <div class="caixa-exemplo">
+
+        <h4>Exemplo resolvido</h4>
+
+        <p>
+            Uma campanha apresenta a frase:
+            "Pequenas atitudes podem transformar o mundo",
+            acompanhada de uma imagem de pessoas plantando árvores.
+        </p>
+
+        <p>
+            A mensagem procura incentivar atitudes individuais
+            que contribuam para a preservação ambiental.
+            Portanto, sua finalidade é conscientizar o público.
+        </p>
+
+    </div>
+
+    <h3>2. Linguagem verbal e não verbal</h3>
+
+    <p>
+        A linguagem é utilizada para transmitir mensagens e pode
+        acontecer de diferentes maneiras.
+    </p>
+
+    <p>
+        <strong>Linguagem verbal:</strong> utiliza palavras,
+        tanto na forma escrita quanto na oral.
+    </p>
+
+    <p>
+        <strong>Linguagem não verbal:</strong> utiliza imagens,
+        gestos, cores, símbolos e expressões para transmitir informações.
+    </p>
+
+    <p>
+        <strong>Linguagem mista:</strong> combina elementos verbais
+        e não verbais, como acontece em histórias em quadrinhos,
+        propagandas e charges.
+    </p>
+
+    <div class="caixa-exemplo">
+
+        <h4>Exemplo resolvido</h4>
+
+        <p>
+            Uma tirinha apresenta personagens conversando por meio
+            de balões de fala, enquanto suas expressões faciais
+            ajudam a transmitir sentimentos e construir o humor.
+        </p>
+
+        <p>
+            Nesse caso, ocorre o uso da linguagem mista,
+            pois há combinação de palavras e imagens.
+        </p>
+
+    </div>
+
+    <h3>3. Gêneros textuais</h3>
+
+    <p>
+        Os gêneros textuais são formas de organização dos textos
+        utilizadas em diferentes situações de comunicação.
+        Cada gênero possui características e finalidades próprias.
+    </p>
+
+    <ul>
+        <li><strong>Notícia:</strong> apresenta informações sobre acontecimentos.</li>
+        <li><strong>Crônica:</strong> aborda situações do cotidiano, geralmente com reflexão.</li>
+        <li><strong>Artigo de opinião:</strong> apresenta um ponto de vista sobre determinado assunto.</li>
+        <li><strong>Charge:</strong> utiliza humor e crítica para abordar questões sociais e políticas.</li>
+        <li><strong>Tirinha:</strong> apresenta uma narrativa curta, geralmente com humor.</li>
+        <li><strong>Propaganda:</strong> busca divulgar ideias, produtos ou serviços.</li>
+        <li><strong>Poema:</strong> explora recursos expressivos e estéticos da linguagem.</li>
+        <li><strong>Reportagem:</strong> apresenta informações aprofundadas sobre determinado tema.</li>
+    </ul>
+
+    <div class="destaque-leitura">
+
+        <p>
+            <strong>Dica para o ENEM:</strong>
+            Identifique o gênero textual, sua finalidade,
+            o público-alvo e o contexto em que foi produzido.
+            Essas informações ajudam a compreender a mensagem.
+        </p>
+
+    </div>
+
+    <h3>4. Figuras de linguagem</h3>
+
+    <p>
+        As figuras de linguagem são recursos utilizados para
+        produzir efeitos de sentido, expressividade e criatividade
+        na comunicação.
+    </p>
+
+    <ul>
+        <li><strong>Metáfora:</strong> comparação implícita entre elementos.</li>
+        <li><strong>Comparação:</strong> aproxima dois elementos utilizando termos comparativos.</li>
+        <li><strong>Personificação:</strong> atribui características humanas a seres não humanos.</li>
+        <li><strong>Hipérbole:</strong> utiliza exagero para destacar uma ideia.</li>
+        <li><strong>Ironia:</strong> expressa uma ideia com sentido diferente ou contrário ao literal.</li>
+        <li><strong>Antítese:</strong> aproxima ideias de sentidos opostos.</li>
+    </ul>
+
+    <div class="caixa-exemplo">
+
+        <h4>Exemplos</h4>
+
+        <p>
+            <strong>Metáfora:</strong> "Aquela menina é uma estrela."
+        </p>
+
+        <p>
+            <strong>Personificação:</strong> "O vento cantava durante a noite."
+        </p>
+
+        <p>
+            <strong>Hipérbole:</strong> "Estou morrendo de fome."
+        </p>
+
+        <p>
+            <strong>Ironia:</strong> "Que ótimo! Perdi o ônibus novamente!"
+        </p>
+
+        <p>
+            <strong>Antítese:</strong> "O amor e o ódio caminham juntos."
+        </p>
+
+    </div>
+
+    <h3>5. Funções da linguagem</h3>
+
+    <p>
+        As funções da linguagem representam as diferentes
+        finalidades da comunicação. São classificadas de acordo
+        com o elemento da comunicação que recebe maior destaque.
+    </p>
+
+    <ul>
+        <li><strong>Referencial:</strong> transmite informações de maneira objetiva.</li>
+        <li><strong>Emotiva:</strong> expressa sentimentos e opiniões do emissor.</li>
+        <li><strong>Conativa:</strong> procura convencer ou influenciar o receptor.</li>
+        <li><strong>Fática:</strong> estabelece ou mantém o contato entre os interlocutores.</li>
+        <li><strong>Metalinguística:</strong> utiliza a linguagem para explicar a própria linguagem.</li>
+        <li><strong>Poética:</strong> valoriza a forma da mensagem e seus recursos expressivos.</li>
+    </ul>
+
+    <div class="caixa-exemplo">
+
+        <h4>Exemplos</h4>
+
+        <p>
+            <strong>Referencial:</strong> uma notícia que informa
+            sobre determinado acontecimento.
+        </p>
+
+        <p>
+            <strong>Emotiva:</strong> um diário que apresenta
+            sentimentos pessoais.
+        </p>
+
+        <p>
+            <strong>Conativa:</strong> uma propaganda que incentiva
+            o público a adquirir um produto.
+        </p>
+
+        <p>
+            <strong>Fática:</strong> "Alô, você está me ouvindo?"
+        </p>
+
+        <p>
+            <strong>Metalinguística:</strong> um dicionário que
+            explica o significado das palavras.
+        </p>
+
+        <p>
+            <strong>Poética:</strong> um poema que explora rimas,
+            ritmo e sonoridade.
+        </p>
+
+    </div>
+
+    <h3>6. Variação linguística</h3>
+
+    <p>
+        A língua portuguesa apresenta diferentes formas de utilização,
+        que variam de acordo com a região, o grupo social, a situação
+        comunicativa e o período histórico.
+    </p>
+
+    <ul>
+        <li><strong>Regional:</strong> diferenças de vocabulário e pronúncia entre regiões.</li>
+        <li><strong>Social:</strong> diferenças relacionadas aos grupos sociais.</li>
+        <li><strong>Histórica:</strong> transformações da língua ao longo do tempo.</li>
+        <li><strong>Situacional:</strong> adequação da linguagem ao contexto de comunicação.</li>
+    </ul>
+
+    <p>
+        As variedades linguísticas fazem parte da diversidade cultural.
+        É importante compreender que não existe apenas uma maneira
+        de falar e que a linguagem pode variar conforme o contexto.
+    </p>
+
+    <div class="destaque-leitura">
+
+        <p>
+            <strong>Dica para o ENEM:</strong>
+            A prova aborda situações de comunicação em diferentes
+            contextos sociais e culturais. Por isso, é importante
+            compreender a diversidade linguística e evitar preconceitos
+            relacionados às formas de falar.
+        </p>
+
+    </div>
+
+    <h3>7. Literatura brasileira</h3>
+
+    <p>
+        A literatura brasileira reúne diferentes movimentos literários
+        que representam transformações culturais, sociais e históricas
+        do país.
+    </p>
+
+    <ul>
+        <li><strong>Quinhentismo:</strong> textos relacionados ao período colonial.</li>
+        <li><strong>Barroco:</strong> apresenta contrastes e conflitos entre ideias.</li>
+        <li><strong>Arcadismo:</strong> valoriza a simplicidade e a natureza.</li>
+        <li><strong>Romantismo:</strong> destaca sentimentos, idealização e nacionalismo.</li>
+        <li><strong>Realismo:</strong> apresenta uma visão crítica da sociedade.</li>
+        <li><strong>Naturalismo:</strong> aborda o comportamento humano e suas influências sociais e ambientais.</li>
+        <li><strong>Parnasianismo:</strong> valoriza a forma e o rigor estético dos poemas.</li>
+        <li><strong>Simbolismo:</strong> utiliza musicalidade, subjetividade e simbolismo.</li>
+        <li><strong>Modernismo:</strong> rompe com padrões tradicionais e valoriza a identidade brasileira.</li>
+    </ul>
+
+    <p>
+        No ENEM, é importante relacionar as características das obras
+        ao contexto histórico e social em que foram produzidas,
+        além de compreender os recursos utilizados pelos autores.
+    </p>
+
+    <h3>8. Pratique seus conhecimentos</h3>
+
+    <div class="caixa-exemplo">
+
+        <h4>Questão 1</h4>
+
+        <p>
+            Em uma campanha de conscientização ambiental,
+            aparece a frase: "Cuide da natureza, preserve
+            o futuro!", acompanhada de imagens de árvores
+            e rios preservados.
+        </p>
+
+        <p>
+            A principal finalidade dessa mensagem é:
+        </p>
+
+        <p>
+            a) Narrar um acontecimento histórico.<br>
+            b) Informar dados científicos sobre o meio ambiente.<br>
+            c) Convencer o público a adotar atitudes de preservação.<br>
+            d) Apresentar uma história fictícia.<br>
+            e) Descrever uma paisagem natural.
+        </p>
+
+        <details>
+            <summary style="cursor:pointer; color:#315eb0; font-size:13px; font-weight:600;">
+                Ver resposta
+            </summary>
+
+            <p style="margin-top:10px;">
+                <strong>Alternativa C.</strong>
+                A campanha procura influenciar o comportamento
+                do público, incentivando atitudes de preservação
+                ambiental. Portanto, apresenta principalmente
+                a função conativa da linguagem.
+            </p>
+        </details>
+
+    </div>
+
+    <div class="caixa-exemplo">
+
+        <h4>Questão 2</h4>
+
+        <p>
+            Na frase "O sol sorria no horizonte", o autor
+            atribui ao sol uma característica própria dos seres humanos.
+        </p>
+
+        <p>
+            Qual figura de linguagem foi utilizada?
+        </p>
+
+        <p>
+            a) Metáfora.<br>
+            b) Hipérbole.<br>
+            c) Ironia.<br>
+            d) Personificação.<br>
+            e) Antítese.
+        </p>
+
+        <details>
+            <summary style="cursor:pointer; color:#315eb0; font-size:13px; font-weight:600;">
+                Ver resposta
+            </summary>
+
+            <p style="margin-top:10px;">
+                <strong>Alternativa D.</strong>
+                A personificação acontece quando características
+                ou ações humanas são atribuídas a seres não humanos.
+                Nesse caso, o sol recebe a ação de sorrir.
+            </p>
+        </details>
+
+    </div>
+
+    <div class="caixa-exemplo">
+
+        <h4>Questão 3</h4>
+
+        <p>
+            Uma pessoa utiliza expressões regionais em uma
+            conversa com amigos de sua cidade. Essa situação
+            demonstra que a língua:
+        </p>
+
+        <p>
+            a) Apresenta apenas uma forma correta de utilização.<br>
+            b) Não sofre mudanças ao longo do tempo.<br>
+            c) Possui diferentes variedades de acordo com o contexto social e regional.<br>
+            d) Deve ser utilizada da mesma maneira em todas as situações.<br>
+            e) Não apresenta relação com a cultura.
+        </p>
+
+        <details>
+            <summary style="cursor:pointer; color:#315eb0; font-size:13px; font-weight:600;">
+                Ver resposta
+            </summary>
+
+            <p style="margin-top:10px;">
+                <strong>Alternativa C.</strong>
+                A língua apresenta variações regionais, sociais
+                e situacionais, refletindo a diversidade cultural
+                dos falantes.
+            </p>
+        </details>
+
+    </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const modal = document.getElementById("modalVideo");
+        const iframe = document.getElementById("iframeVideo");
+
+        const areaVideo = document.getElementById("areaVideo");
+        const areaConteudo = document.getElementById("areaConteudo");
+
+        // ABRIR VÍDEO DO YOUTUBE
+
+      function abrirVideo(idVideo) {
+
+    areaVideo.style.display = "block";
+    areaConteudo.style.display = "none";
+
+    iframe.src = "https://www.youtube-nocookie.com/embed/" 
+        + idVideo + "?autoplay=1&rel=0";
+
+    modal.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+
+}
+        // ABRIR MATERIAL DE LEITURA
+
+        function abrirConteudo() {
+
+            iframe.src = "";
+
+            areaVideo.style.display = "none";
+            areaConteudo.style.display = "block";
+
+            modal.style.display = "flex";
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+        // FECHAR MODAL
+
+        function fecharModal() {
+
+            modal.style.display = "none";
+
+            iframe.src = "";
+
+            areaVideo.style.display = "block";
+            areaConteudo.style.display = "none";
+
+            document.body.style.overflow = "";
+
+        }
+
+        // FECHAR AO CLICAR FORA DO MODAL
+
+        modal.addEventListener("click", function(event) {
+
+            if (event.target === modal) {
+
+                fecharModal();
+
+            }
+
+        });
+
+        // FECHAR AO PRESSIONAR ESC
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape" &&
+                modal.style.display === "flex") {
+
+                fecharModal();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
